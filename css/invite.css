@@ -172,7 +172,7 @@ select.inp { -webkit-appearance: none; appearance: none; }
 @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .bgmedia, .orn, .rosette-spin, .shimmer, .scroll-hint, .seal, .music[aria-pressed="true"] { animation: none; }
+  .bgmedia, .bgart, .orn, .rosette-spin, .shimmer, .scroll-hint, .seal, .music[aria-pressed="true"] { animation: none; }
   body.opened .rv { animation: none; opacity: 1; }
   .intro { transition: opacity 0.2s linear; }
 }
@@ -227,6 +227,12 @@ select.inp { -webkit-appearance: none; appearance: none; }
 .flap { position: absolute; inset: 0; background: var(--tex-damask-velvet), var(--tex-nap), var(--tex-noise), var(--bg); background-size: 160px 160px, 700px 700px, 240px 240px, auto;
   transition: transform 1.1s cubic-bezier(0.65, 0, 0.35, 1), opacity 1.1s ease; }
 .tex-paper .flap { background: var(--tex-damask-paper), var(--tex-noise), var(--bg); background-size: 160px 160px, 240px 240px, auto; }
+/* painted collections (catalog `art`): the picture is the first screen, the rest is plain paper */
+.bgart { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: pushin 26s ease-in-out infinite alternate; }
+.tex-art .inv, .tex-art .flap { background: var(--tex-noise), var(--bg); background-size: 240px 240px, auto; }
+.tex-art { background: var(--tex-noise), var(--bg2); }
+/* the art is heaviest along the bottom edge: lift the wording clear of it */
+.tex-art .hero-in { padding-bottom: 24%; }
 .flap-l { clip-path: polygon(0 0, 50% 50%, 0 100%); filter: brightness(0.94); }
 .flap-r { clip-path: polygon(100% 0, 50% 50%, 100% 100%); filter: brightness(0.9); }
 .flap-b { clip-path: polygon(0 100%, 50% 48%, 100% 100%); filter: brightness(1.04); }

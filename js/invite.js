@@ -187,6 +187,8 @@
     } else if (d.bg && d.bg.type === 'image') {
       media = h('img', { class: 'bgmedia', src: d.bg.url, alt: '' });
     }
+    // painted collections bring their own first screen; the client's own photo or video still wins
+    var art = !media && theme.art ? h('img', { class: 'bgart', src: theme.art, alt: '' }) : null;
     var names;
     if (d.name2) {
       names = h('h1', { class: 'names rv' }, [
@@ -196,8 +198,8 @@
       names = h('h1', { class: 'names rv' }, [h('span', { text: d.name1 || '' })]);
     }
     return h('section', { class: 'hero' + (media ? ' has-media' : '') }, [
-      media || h('div', { class: 'bgwash' }),
-      media ? h('div', { class: 'scrim' }) : ornament(),
+      media || art || h('div', { class: 'bgwash' }),
+      media ? h('div', { class: 'scrim' }) : art ? null : ornament(),
       h('div', { class: 'shimmer', 'aria-hidden': 'true' }),
       h('div', { class: 'hero-in' }, [
         guest ? h('p', { class: 'guest rv', text: guest }) : null,

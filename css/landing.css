@@ -54,10 +54,32 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 
 /* ---------- hero ---------- */
 .hero { position: relative; height: calc(814 * var(--u)); overflow: hidden; background: radial-gradient(calc(700 * var(--u)) calc(420 * var(--u)) at 20% 92%, rgba(255, 250, 243, 0.7), transparent 70%), linear-gradient(180deg, var(--l-cream), var(--l-cream-2)); }
-.hero-photo { position: absolute; left: calc(50% + calc(-18 * var(--u))); top: calc(86 * var(--u)); width: calc(736 * var(--u)); height: calc(727 * var(--u)); max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(70 * var(--u))), linear-gradient(180deg, transparent, #000 calc(70 * var(--u))); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 calc(70 * var(--u))), linear-gradient(180deg, transparent, #000 calc(70 * var(--u))); mask-composite: intersect; }
-.hero-card { position: absolute; z-index: 2; left: calc(50% + calc(74 * var(--u))); top: calc(126 * var(--u)); width: calc(468 * var(--u)); height: calc(621 * var(--u)); transform: rotate(5deg); border-radius: calc(8 * var(--u)); }
+/* hero art: the silk-and-peony scene with the sample invitation laid on it (both from design/flow) */
+.hero-art { position: absolute; left: calc(50% + calc(-18 * var(--u))); top: calc(86 * var(--u)); width: calc(736 * var(--u)); height: calc(727 * var(--u)); }
+.hero-photo { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(70 * var(--u))), linear-gradient(180deg, transparent, #000 calc(70 * var(--u))); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 calc(70 * var(--u))), linear-gradient(180deg, transparent, #000 calc(70 * var(--u))); mask-composite: intersect; }
+.hero-card { position: absolute; left: calc(92 * var(--u)); top: calc(40 * var(--u)); width: calc(468 * var(--u)); transform: rotate(5deg); border-radius: calc(8 * var(--u)); box-shadow: 0 calc(40 * var(--u)) calc(70 * var(--u)) calc(-30 * var(--u)) rgba(36, 22, 10, 0.55), 0 calc(8 * var(--u)) calc(18 * var(--u)) rgba(36, 22, 10, 0.18); }
 .hero-card:focus-visible { outline: 3px solid var(--l-gold); outline-offset: 4px; }
-.hero-in { position: relative; z-index: 1; padding-top: calc(146 * var(--u)); }
+/* foil glint passing over the card now and then */
+.hero-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(115deg, transparent 40%, rgba(255, 236, 190, 0.28) 50%, transparent 60%); background-size: 260% 100%; background-position: 140% 0; mix-blend-mode: soft-light; animation: sheen 7s var(--ease) infinite 3s; pointer-events: none; }
+.hero-in { position: relative; z-index: 1; padding-top: calc(146 * var(--u)); pointer-events: none; }
+.hero-in > * { pointer-events: auto; }
+
+/* invitation faces: generated card art with the wording laid over in HTML, so it stays sharp and translatable */
+.face { display: block; overflow: hidden; container-type: inline-size; }
+.shot .face { position: relative; }
+.face img { display: block; width: 100%; height: auto; }
+.cf { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4cqw; padding: 0 16cqw; text-align: center; font-family: "Cormorant Garamond", Georgia, serif; }
+.cf-k { font-size: 6cqw; font-weight: 500; font-style: italic; letter-spacing: 0.02em; }
+.cf-n { display: flex; flex-direction: column; align-items: center; margin: 1.5cqw 0 2cqw; font: 400 15cqw / 0.95 "Great Vibes", "Segoe Script", cursive; }
+.cf-n i { font-style: normal; font-size: 0.62em; line-height: 1.15; }
+.cf-d { font-size: 6.4cqw; font-weight: 600; letter-spacing: 0.04em; }
+.cf-p { font-size: 5.6cqw; font-weight: 500; font-style: italic; }
+.cf--gold { color: #e8c993; }
+.cf--gold .cf-n { background: linear-gradient(100deg, #c99a52, #f3dca6 45%, #c3924b 70%, #e9cd90); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cf--ink { color: #4a3523; }
+.cf--ink .cf-n { color: #6b4a2b; }
+.cf--low { padding-top: 10cqw; }
+.cf--arch { padding: 8cqw 26cqw 0 14cqw; }
 .hero h1 { margin: calc(12 * var(--u)) 0 0; max-width: calc(600 * var(--u)); font-size: calc(72.5 * var(--u)); line-height: calc(72 * var(--u)); letter-spacing: -0.005em; color: var(--l-ink); }
 .gold { white-space: nowrap; background: linear-gradient(100deg, #a8783c, #c79a5c 50%, #b88a4e); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { margin-top: calc(30 * var(--u)); max-width: calc(500 * var(--u)); color: var(--l-ink-2); font-size: calc(18 * var(--u)); line-height: calc(27 * var(--u)); }
@@ -91,9 +113,11 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 .rail li { flex: none; scroll-snap-align: start; }
 .rail li.up { transform: translateY(calc(-16 * var(--u))); }
 .rail a { display: block; transition: transform var(--t-slow) var(--ease); }
+.shot a { border-radius: calc(10 * var(--u)); box-shadow: 0 calc(22 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(74, 47, 28, 0.45), 0 calc(2 * var(--u)) calc(6 * var(--u)) rgba(74, 47, 28, 0.12); }
 .rail a:hover { transform: translateY(calc(-6 * var(--u))); }
-.shot:nth-child(1) img { width: calc(293 * var(--u)); }
-.shot img { width: calc(286 * var(--u)); height: auto; }
+/* .face is a size container, so it needs its own width */
+.shot .face { width: calc(286 * var(--u)); }
+.shot:nth-child(1) .face { width: calc(293 * var(--u)); }
 .live { width: calc(286 * var(--u)); padding: calc(13 * var(--u)) calc(13 * var(--u)) calc(28 * var(--u)); }
 .live a { position: relative; aspect-ratio: 261 / 330; border-radius: calc(12 * var(--u)); overflow: hidden; background: var(--l-chip); box-shadow: 0 calc(20 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(74, 47, 28, 0.45); }
 .live iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
@@ -200,6 +224,16 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 .dock p span:first-child { font-weight: 700; font-size: 14px; color: var(--l-ink); }
 .dock .btn { min-height: 44px; padding: 0 18px; font-size: 14px; }
 
+/* ---------- motion (public/js/motion.js) ---------- */
+/* hero copy waits for the intro; index.html drops .motion if GSAP never loads */
+.motion .hero-in > *, .motion .hero-art, .motion .hero .scroll { opacity: 0; }
+.dust { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.dust i { position: absolute; width: calc(5 * var(--u)); height: calc(5 * var(--u)); border-radius: 50%; opacity: 0; background: radial-gradient(circle, #fff6dc 0%, var(--l-gold-3) 40%, transparent 70%); box-shadow: 0 0 calc(8 * var(--u)) rgba(232, 201, 147, 0.8); }
+.btn--gold { overflow: hidden; isolation: isolate; }
+.btn--gold::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(105deg, transparent 35%, rgba(255, 249, 232, 0.55) 50%, transparent 65%); background-size: 250% 100%; background-position: 130% 0; animation: sheen 5s var(--ease) infinite 2s; pointer-events: none; }
+.btn--gold:hover::after { animation-duration: 1.6s; }
+
+@keyframes sheen { 0%, 55% { background-position: 130% 0; } 100% { background-position: -30% 0; } }
 @keyframes wheel { 0% { opacity: 1; transform: translateY(0); } 70% { opacity: 0; transform: translateY(9px); } 100% { opacity: 0; } }
 @keyframes open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
@@ -218,10 +252,11 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
   .hero h1 { font-size: 44px; line-height: 48px; max-width: 13ch; }
   .lead { font-size: 16px; line-height: 26px; margin-top: 18px; }
   .hero .btn--gold { width: 100%; min-height: 56px; margin-top: 22px; font-size: 16px; }
-  .hero-photo { position: relative; left: auto; top: auto; display: block; width: calc(100% + 40px); height: auto; margin: 24px -20px 0 auto; order: 2; -webkit-mask-image: linear-gradient(180deg, transparent, #000 40px); mask-image: linear-gradient(180deg, transparent, #000 40px); }
+  .hero-art { position: relative; left: auto; top: auto; width: calc(100% + 40px); height: auto; aspect-ratio: 736 / 727; margin: 24px -20px 0; order: 2; }
+  .hero-photo { -webkit-mask-image: linear-gradient(180deg, transparent, #000 40px); mask-image: linear-gradient(180deg, transparent, #000 40px); }
   .hero { display: flex; flex-direction: column; }
   .hero-in { order: 1; }
-  .hero-card { left: 18%; top: auto; bottom: 8%; width: 62%; height: 70%; }
+  .hero-card { left: 24%; top: 6%; width: 50%; }
   .scroll { display: none; }
   .events, .features, .prices, .org, .faq, .cta, .foot { height: auto; }
   .events { padding: 56px 0 40px; margin-top: 0; }
@@ -232,7 +267,7 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
   .round { width: 48px; height: 48px; }
   .rail-wrap { margin-right: -20px; }
   .rail { padding: 28px 20px 24px 0; gap: 12px; }
-  .shot img, .shot:nth-child(1) img { width: 220px; }
+  .shot .face, .shot:nth-child(1) .face { width: 220px; }
   .live { width: 220px; padding: 10px 10px 20px; }
   .dots { position: static; justify-content: center; gap: 10px; padding-right: 20px; }
   .features { padding: 56px 0 80px; }
@@ -288,4 +323,5 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .btn--gold::after { animation: none; }
 }
