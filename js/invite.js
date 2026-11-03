@@ -61,8 +61,20 @@
   }
 
   // Ogee arch around the text, plus corner rosettes. viewBox 400x711 (9:16).
+  // metallic gold used by frames, rosettes and dividers (url(#gfoil) in CSS)
+  function foilDefs() {
+    return s('defs', {}, [
+      s('linearGradient', { id: 'gfoil', x1: '0', y1: '0', x2: '1', y2: '1' }, [
+        s('stop', { offset: '0', style: 'stop-color:var(--foil-1)' }), s('stop', { offset: '.35', style: 'stop-color:var(--foil-2)' }),
+        s('stop', { offset: '.55', style: 'stop-color:var(--foil-3)' }), s('stop', { offset: '.75', style: 'stop-color:var(--foil-2)' }),
+        s('stop', { offset: '1', style: 'stop-color:var(--foil-1)' })
+      ])
+    ]);
+  }
+
   function ornament() {
     var svg = s('svg', { viewBox: '0 0 400 711', preserveAspectRatio: 'xMidYMid slice', class: 'orn', 'aria-hidden': 'true' });
+    svg.appendChild(foilDefs());
     svg.appendChild(rosette(0, 0, 92, 12));
     svg.appendChild(rosette(400, 0, 92, 12));
     svg.appendChild(rosette(0, 711, 80, 10));
@@ -84,6 +96,58 @@
       s('path', { d: 'M0 12 H96', class: 'line' }), s('path', { d: 'M144 12 H240', class: 'line' }),
       s('path', { d: 'M120 2 L130 12 L120 22 L110 12 Z', class: 'gem' }),
       s('circle', { cx: 102, cy: 12, r: 2.5, class: 'dot' }), s('circle', { cx: 138, cy: 12, r: 2.5, class: 'dot' })
+    ]);
+  }
+
+  // ---------- ranglar va sur'g'uch muhr ----------
+  function hexRgb(hx) { var n = parseInt(hx.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+  function mix(hx, to, k) {
+    var a = hexRgb(hx), b = to === 'white' ? [255, 255, 255] : [0, 0, 0];
+    return '#' + a.map(function (v, i) { return ('0' + Math.round(v + (b[i] - v) * k).toString(16)).slice(-2); }).join('');
+  }
+  var sealN = 0;
+  // A wax seal: irregular melted edge, lit from the top left, initials pressed in.
+  function waxSeal(color, initials) {
+    var id = 'w' + (++sealN);
+    var pts = [], i, n = 30;
+    for (i = 0; i < n; i++) {
+      var a = Math.PI * 2 * i / n;
+      var r = 70 + Math.sin(i * 2.3) * 3.2 + Math.cos(i * 5.1) * 2.4;
+      pts.push([80 + Math.cos(a) * r, 80 + Math.sin(a) * r]);
+    }
+    var d = '';
+    for (i = 0; i < n; i++) {
+      var p0 = pts[i], p1 = pts[(i + 1) % n];
+      var mx = (p0[0] + p1[0]) / 2, my = (p0[1] + p1[1]) / 2;
+      d += (i ? ' Q' : 'M' + ((pts[n - 1][0] + p0[0]) / 2).toFixed(1) + ' ' + ((pts[n - 1][1] + p0[1]) / 2).toFixed(1) + ' Q') + p0[0].toFixed(1) + ' ' + p0[1].toFixed(1) + ' ' + mx.toFixed(1) + ' ' + my.toFixed(1);
+    }
+    d += 'Z';
+    var dark = mix(color, 'black', 0.32), light = mix(color, 'white', 0.35);
+    var dots = [];
+    for (i = 0; i < 24; i++) {
+      var b = Math.PI * 2 * i / 24;
+      dots.push(s('circle', { cx: (80 + Math.cos(b) * 50).toFixed(1), cy: (80 + Math.sin(b) * 50).toFixed(1), r: 1.6, fill: dark, opacity: '.55' }));
+    }
+    return s('svg', { viewBox: '0 0 160 160', class: 'wax', 'aria-hidden': 'true' }, [
+      s('defs', {}, [
+        s('radialGradient', { id: id + 'g', cx: '38%', cy: '32%', r: '75%' }, [
+          s('stop', { offset: '0', 'stop-color': light }), s('stop', { offset: '.5', 'stop-color': color }), s('stop', { offset: '1', 'stop-color': dark })
+        ]),
+        s('filter', { id: id + 'f', x: '-25%', y: '-25%', width: '150%', height: '150%' }, [
+          s('feGaussianBlur', { in: 'SourceAlpha', stdDeviation: '3', result: 'b' }),
+          s('feSpecularLighting', { in: 'b', surfaceScale: '5', specularConstant: '.75', specularExponent: '20', 'lighting-color': '#ffffff', result: 'sp' }, [
+            s('fePointLight', { x: '30', y: '10', z: '120' })
+          ]),
+          s('feComposite', { in: 'sp', in2: 'SourceAlpha', operator: 'in', result: 'spi' }),
+          s('feComposite', { in: 'SourceGraphic', in2: 'spi', operator: 'arithmetic', k1: '0', k2: '1', k3: '.55', k4: '0' })
+        ])
+      ]),
+      s('path', { d: d, fill: 'url(#' + id + 'g)', filter: 'url(#' + id + 'f)' }),
+      s('circle', { cx: 80, cy: 80, r: 56, fill: 'none', stroke: dark, 'stroke-width': '2', opacity: '.5' }),
+      s('circle', { cx: 80, cy: 81.5, r: 56, fill: 'none', stroke: light, 'stroke-width': '1', opacity: '.45' }),
+      s('g', {}, dots),
+      s('text', { x: 80, y: 97, 'text-anchor': 'middle', class: 'wax-t', fill: light, opacity: '.55', transform: 'translate(0 1.4)' }, [document.createTextNode(initials)]),
+      s('text', { x: 80, y: 97, 'text-anchor': 'middle', class: 'wax-t', fill: dark }, [document.createTextNode(initials)])
     ]);
   }
 
@@ -172,14 +236,38 @@
     tick();
     timers.push(setInterval(tick, 1000));
     return h('section', { class: 'block' }, [
+      calendar(d),
       divider(),
-      h('h2', { class: 'bh', text: L(d, 'left') }),
+      h('h2', { class: 'bh foil', text: L(d, 'left') }),
       grid, done,
       h('div', { class: 'facts' }, [
         h('div', {}, [h('span', { class: 'fl', text: L(d, 'date') }), h('span', { class: 'fv', text: fmtDate(d, langs(d)[0]) })]),
         d.time ? h('div', {}, [h('span', { class: 'fl', text: L(d, 'time') }), h('span', { class: 'fv', text: d.time })]) : null
       ]),
       calendarButtons(d, target)
+    ]);
+  }
+
+  // the month of the event, its day marked with a heart
+  function calendar(d) {
+    var p = d.date.split('-').map(Number);
+    var lang = langs(d)[0];
+    var first = (new Date(Date.UTC(p[0], p[1] - 1, 1)).getUTCDay() + 6) % 7;
+    var days = new Date(Date.UTC(p[0], p[1], 0)).getUTCDate();
+    var cells = CAT.weekdaysShort[lang].map(function (w) { return h('span', { class: 'cal-w', text: w }); });
+    var i;
+    for (i = 0; i < first; i++) cells.push(h('span'));
+    for (i = 1; i <= days; i++) {
+      if (i === p[2]) {
+        cells.push(h('span', { class: 'cal-d cal-on' }, [
+          s('svg', { viewBox: '0 0 24 22', 'aria-hidden': 'true' }, [s('path', { d: 'M12 21C5 15.5 1 12 1 7.2 1 3.8 3.6 1.5 6.6 1.5c2.1 0 3.9 1.1 5.4 3 1.5-1.9 3.3-3 5.4-3 3 0 5.6 2.3 5.6 5.7C23 12 19 15.5 12 21Z' })]),
+          h('b', { text: String(i) })
+        ]));
+      } else cells.push(h('span', { class: 'cal-d', text: String(i) }));
+    }
+    return h('div', { class: 'cal' }, [
+      h('p', { class: 'cal-title foil', text: CAT.monthsNom[lang][p[1] - 1] + ', ' + p[0] }),
+      h('div', { class: 'cal-grid' }, cells)
     ]);
   }
 
@@ -214,7 +302,7 @@
 
   function programBlock(d) {
     if (!d.program || !d.program.length) return null;
-    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh', text: L(d, 'program') }),
+    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh foil', text: L(d, 'program') }),
       h('ol', { class: 'timeline' }, d.program.map(function (p) {
         return h('li', {}, [h('span', { class: 'tl-time', text: p.time || '' }), h('span', { class: 'tl-dot', 'aria-hidden': 'true' }), h('span', { class: 'tl-title', text: p.title })]);
       }))]);
@@ -226,7 +314,7 @@
       return h('button', { type: 'button', class: 'g-item', 'aria-label': String(i + 1), onclick: function () { lightbox(d.gallery, i); } },
         [h('img', { src: src, alt: '', loading: 'lazy' })]);
     }));
-    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh', text: L(d, 'gallery') }), grid]);
+    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh foil', text: L(d, 'gallery') }), grid]);
   }
   function lightbox(list, start) {
     var i = start;
@@ -250,7 +338,7 @@
   function giftBlock(d) {
     if (!d.gift || !d.gift.length) return null;
     var lb = labels(langs(d)[0]);
-    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh', text: L(d, 'gift') }), h('p', { class: 'small-note', text: lb.giftHint }),
+    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh foil', text: L(d, 'gift') }), h('p', { class: 'small-note', text: lb.giftHint }),
       h('div', { class: 'gifts' }, d.gift.map(function (g) {
         var btn = h('button', { type: 'button', class: 'ibtn ghost', text: lb.copy });
         btn.addEventListener('click', function () {
@@ -299,12 +387,12 @@
       h('div', { class: 'btns' }, [h('button', { class: 'ibtn', type: 'submit', text: lb.wishSend })])
     ]);
     load();
-    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh', text: L(d, 'wishes') }), list, empty, form, status]);
+    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh foil', text: L(d, 'wishes') }), list, empty, form, status]);
   }
 
   function thanksBlock(d) {
     if (!d.thanks) return null;
-    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh', text: L(d, 'thanks') }), h('p', { class: 'itext', text: d.thanks })]);
+    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh foil', text: L(d, 'thanks') }), h('p', { class: 'itext', text: d.thanks })]);
   }
 
   function venue(d) {
@@ -317,7 +405,7 @@
          h('a', { class: 'ibtn ghost', href: 'https://www.google.com/maps/search/?api=1&query=' + q, target: '_blank', rel: 'noopener', text: 'Google Maps' })];
     return h('section', { class: 'block' }, [
       divider(),
-      h('h2', { class: 'bh', text: L(d, 'place') }),
+      h('h2', { class: 'bh foil', text: L(d, 'place') }),
       d.venue ? h('p', { class: 'venue', text: d.venue }) : null,
       d.address ? h('p', { class: 'addr', text: d.address }) : null,
       h('div', { class: 'btns' }, links)
@@ -392,7 +480,7 @@
       ])
     ]));
     if (guest && guest.answer) { form.hidden = true; done.hidden = false; }
-    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh', text: L(d, 'rsvpTitle') }), form, done, status]);
+    return h('section', { class: 'block' }, [divider(), h('h2', { class: 'bh foil', text: L(d, 'rsvpTitle') }), form, done, status]);
   }
 
   function footer(d) {
@@ -485,25 +573,38 @@
     return wm;
   }
 
+  // Envelope: four flaps meeting at a wax seal. Tapping the seal parts the flaps and plays the music.
   function intro(d, theme, onOpen, guestLine) {
     var initials = [d.name1, d.name2].filter(Boolean).map(function (n) { return n.trim().charAt(0); }).join(d.name2 ? '&' : '');
     var lb = labels(langs(d)[0]);
-    var btn = h('button', { class: 'open-btn', type: 'button', text: lb.open });
-    var ov = h('div', { class: 'intro' }, [
-      h('div', { class: 'intro-card' }, [
-        ornament(),
-        guestLine ? h('p', { class: 'env-guest', text: guestLine }) : null,
-        h('div', { class: 'seal', 'aria-hidden': 'true' }, [h('span', { text: initials })]),
-        btn
+    var seal = h('button', { class: 'env-seal', type: 'button', 'aria-label': lb.open }, [waxSeal(theme.wax || theme.gold, initials)]);
+    var lines = s('svg', { class: 'env-lines', viewBox: '0 0 100 100', preserveAspectRatio: 'none', 'aria-hidden': 'true' }, [
+      foilDefs(),
+      s('path', { d: 'M0 0 L50 52 L100 0', class: 'env-edge' }), s('path', { d: 'M0 100 L50 48 L100 100', class: 'env-edge' })
+    ]);
+    var ov = h('div', { class: 'intro env' }, [
+      h('div', { class: 'flap flap-l' }), h('div', { class: 'flap flap-r' }), h('div', { class: 'flap flap-b' }), h('div', { class: 'flap flap-t' }),
+      lines,
+      h('div', { class: 'env-center' }, [
+        guestLine ? h('p', { class: 'env-guest foil', text: guestLine }) : null,
+        seal,
+        h('p', { class: 'env-hint', text: lb.tapSeal })
       ])
     ]);
-    btn.addEventListener('click', function () {
+    seal.addEventListener('click', function () {
       ov.classList.add('gone');
-      setTimeout(function () { ov.remove(); }, 900);
+      setTimeout(function () { ov.remove(); }, 1300);
       onOpen();
     });
-    setTimeout(function () { btn.focus(); }, 50);
     return ov;
+  }
+
+  function waitingBlock(d) {
+    var lb = labels(langs(d)[0]);
+    return h('section', { class: 'block waiting' }, [
+      h('p', { class: 'w-big foil', text: lb.waiting }),
+      h('p', { class: 'w-names', text: [d.name1, d.name2].filter(Boolean).join(' & ') })
+    ]);
   }
 
   // ---------- yig'ish ----------
@@ -533,7 +634,14 @@
     var st = document.documentElement.style;
     st.setProperty('--bg', theme.bg); st.setProperty('--bg2', theme.bg2); st.setProperty('--ink', theme.ink);
     st.setProperty('--gold', theme.gold); st.setProperty('--petal', theme.petal);
-    document.body.className = (theme.dark ? 'dark' : 'light') + ' t-' + theme.id + (EMBED ? ' embed' : '');
+    st.setProperty('--foil-1', mix(theme.gold, 'black', 0.22)); st.setProperty('--foil-2', theme.gold); st.setProperty('--foil-3', mix(theme.gold, 'white', theme.dark ? 0.55 : 0.28));
+    // alternating bands: cream on velvet themes, ink-coloured on paper themes
+    var bandBg = theme.dark ? '#f6eedf' : theme.ink;
+    var bandGold = theme.dark ? mix(theme.gold, 'black', 0.3) : theme.gold;
+    st.setProperty('--band-bg', bandBg); st.setProperty('--band-ink', theme.dark ? theme.bg : theme.bg);
+    st.setProperty('--band-gold', bandGold);
+    st.setProperty('--band-f1', mix(bandGold, 'black', 0.22)); st.setProperty('--band-f3', mix(bandGold, 'white', theme.dark ? 0.25 : 0.5));
+    document.body.className = (theme.dark ? 'dark' : 'light') + ' t-' + theme.id + ' tex-' + (theme.texture || 'paper') + (EMBED ? ' embed' : '');
     document.documentElement.lang = d.lang === 'ru' ? 'ru' : 'uz';
     var lb0 = labels(langs(d)[0]);
     var guestObj = inv.guest || null;
@@ -547,8 +655,11 @@
     }
     var main = h('main', { class: 'inv' }, [
       hero(d, ev, theme, guest), textBlock(d, ev), parentsBlock(d), countdown(d), programBlock(d), venue(d), galleryBlock(d),
-      rsvpBlock(d, inv.slug, inv.preview, guestObj), wishesBlock(d, inv.slug, inv.preview || EMBED), giftBlock(d), thanksBlock(d), hostsBlock(d), footer(d)
+      rsvpBlock(d, inv.slug, inv.preview, guestObj), wishesBlock(d, inv.slug, inv.preview || EMBED), giftBlock(d), thanksBlock(d), hostsBlock(d), waitingBlock(d), footer(d)
     ]);
+    // every other block after the invitation text becomes a band with torn paper edges
+    var blocks = Array.prototype.filter.call(main.children, function (n) { return n.classList.contains('block'); });
+    blocks.forEach(function (b, i) { if (i % 2 === 1) b.classList.add('band'); });
     root.appendChild(main);
     if (fx) fx.stop();
     fx = startFx(d, theme);

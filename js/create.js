@@ -222,19 +222,20 @@
 
   // ---------- step 3: design ----------
   var formDesign = $('#formDesign');
+  // Collections as live mini previews of the client's own event type.
   function renderThemes() {
     var fs = $('#themes');
-    $$('.sw', fs).forEach(function (n) { n.remove(); });
+    $$('.sw, input[name="theme"]', fs).forEach(function (n) { n.remove(); });
     cfg.themes.forEach(function (th) {
       var id = 'th-' + th.id;
       var input = el('input', { type: 'radio', name: 'theme', id: id, value: th.id });
       input.checked = inv.data.theme === th.id;
       var lab = el('label', { for: id, class: 'sw' });
-      var chip = el('span', { class: 'sw-chip', 'aria-hidden': 'true' });
-      chip.style.setProperty('--sw-bg', th.bg);
-      chip.style.setProperty('--sw-gold', th.gold);
-      lab.appendChild(chip);
-      lab.appendChild(el('span', {}, th.name[L()]));
+      var frame = el('span', { class: 'sw-prev', 'aria-hidden': 'true' });
+      var ifr = el('iframe', { tabindex: '-1', loading: 'lazy', title: th.name[L()], src: '/demo/' + th.id + '?event=' + encodeURIComponent(inv.data.event || 'toy') + '&card=1' });
+      frame.appendChild(ifr);
+      lab.appendChild(frame);
+      lab.appendChild(el('span', { class: 'sw-name' }, th.name[L()]));
       fs.appendChild(input); fs.appendChild(lab);
     });
   }

@@ -222,3 +222,13 @@ label.btn:focus-within { outline: 2px solid var(--gold-1); outline-offset: 2px; 
 .guests-cta strong { font: 400 22px/1.2 var(--f-display); }
 .guests-cta .small { color: var(--cream-3); }
 .ok-note { padding: var(--s3) var(--s4); border-radius: 12px; background: rgba(47, 138, 79, 0.12); color: var(--ok); font: 600 14px/1.4 var(--f-body); }
+
+/* collection picker: live previews */
+.swatches { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s3); }
+.sw { display: grid; gap: var(--s2); min-height: 0; padding: 6px 6px var(--s3); border-radius: var(--r); background: var(--cream); box-shadow: inset 0 0 0 1px var(--line); justify-items: center; }
+.sw-prev { position: relative; display: block; width: 100%; aspect-ratio: 9 / 14; border-radius: 12px; overflow: hidden; background: var(--cream-3); }
+.sw-prev iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.sw-name { font: 600 13px/1.2 var(--f-body); text-align: center; }
+.swatches input:checked + .sw { background: var(--surface); box-shadow: inset 0 0 0 2px var(--gold-1), var(--shadow); }
+@media (max-width: 40rem) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.swatches legend { grid-column: 1 / -1; float: none; }
