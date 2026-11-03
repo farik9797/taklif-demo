@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taklif: jonli taklifnomalar</title>
+<meta name="description" content="To‘y, sunnat to‘yi, tug‘ilgan kun va boshqa tadbirlar uchun musiqali jonli taklifnoma. Bepul yarating, yoqsa to‘lang. Живые приглашения на той и любое событие.">
+<meta property="og:title" content="Taklif: jonli taklifnoma 10 daqiqada">
+<meta property="og:description" content="Bepul yarating, yoqsa to‘lang va havolani mehmonlarga yuboring.">
+<meta property="og:image" content="https://farik9797.github.io/taklif-demo/img/l/hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Playfair+Display:wght@500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/l/hero.webp">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="wordmark" href="./" data-brand>Taklif</a>
+    <nav class="nav-links" aria-label="Menu">
+      <a href="#org" data-l="navServices">Xizmatlar</a>
+      <a href="#events" data-l="navEvents">Tadbir turlari</a>
+      <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
+      <a href="#prices" data-l="navPrices">Narxlar</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--dark nav-cta" href="create.html" data-l="create">Taklifnoma yaratish</a>
+    <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menu">
+  <a href="#org" data-l="navServices">Xizmatlar</a>
+  <a href="#events" data-l="navEvents">Tadbir turlari</a>
+  <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
+  <a href="#prices" data-l="navPrices">Narxlar</a>
+  <a href="#faq">FAQ</a>
+  <a href="create.html" data-l="mine">Taklifnomalarim</a>
+  <span class="langs"><button type="button" data-lang-btn="uz" aria-pressed="true">uz</button><button type="button" data-lang-btn="ru" aria-pressed="false">ru</button></span>
+  <a class="btn btn--dark" href="create.html" data-l="create">Taklifnoma yaratish</a>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-photo" src="img/l/hero.webp" width="1227" height="1212" alt="" fetchpriority="high">
+    <a class="hero-card" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span class="visually-hidden" data-l="openSample">Namunani ochish</span></a>
+    <div class="wrap hero-in">
+      <span class="chip" data-l="heroChip">Onlayn xizmat</span>
+      <h1><span data-l="heroH1">To‘yga jonli taklifnoma,</span> <span class="gold" data-l="heroH1b">10 daqiqada</span></h1>
+      <p class="lead" data-l="heroLead">Bepul yarating, yoqsa to‘lang va havolani mehmonlarga yuboring.</p>
+      <a class="btn btn--gold" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="arrow" aria-hidden="true"></span></a>
+      <p class="proof" id="proof" hidden><img src="img/l/avatars.webp" width="213" height="69" alt=""><span id="proofText"></span></p>
+    </div>
+    <a class="scroll" href="#events"><span class="scroll-line" aria-hidden="true"></span><span class="mouse" aria-hidden="true"></span><span data-l="scroll">Pastga aylantiring</span></a>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="events" id="events">
+    <div class="wrap events-in">
+      <div class="events-text" data-reveal>
+        <span class="chip" data-l="evChip">Dizaynlar</span>
+        <h2 data-l="evH">Har qanday tadbir uchun</h2>
+        <p data-l="evP">O‘zingizga mos uslubni tanlang.</p>
+        <div class="arrows">
+          <button type="button" class="round" id="prev" aria-label="Oldingi"><span class="arrow arrow--l" aria-hidden="true"></span></button>
+          <button type="button" class="round" id="next" aria-label="Keyingi"><span class="arrow" aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <div class="rail-wrap" data-reveal style="--d:120ms">
+        <ul class="rail" id="rail" tabindex="0" aria-label="Namunalar">
+          <li class="shot"><a href="demo/oltin-toy.html" target="_blank" rel="noopener"><img src="img/l/card-wedding.webp" width="489" height="630" alt="Nikoh to‘yi: Umid va Dilshoda"></a></li>
+          <li class="shot up"><a href="demo/tun-tugilgan.html" target="_blank" rel="noopener"><img src="img/l/card-birthday-dark.webp" width="477" height="633" alt="Tug‘ilgan kun: Azizbek"></a></li>
+          <li class="shot"><a href="demo/pushti-tugilgan.html" target="_blank" rel="noopener"><img src="img/l/card-birthday-beige.webp" width="477" height="618" alt="Birthday: Sabrina"></a></li>
+          <li class="live up"><a href="demo/zumrad-sunnat.html" target="_blank" rel="noopener"><iframe data-src="demo/zumrad-sunnat.html?card=1" title="Sunnat to‘yi" tabindex="-1"></iframe></a></li>
+          <li class="live"><a href="demo/pushti-beshik.html" target="_blank" rel="noopener"><iframe data-src="demo/pushti-beshik.html?card=1" title="Beshik to‘yi" tabindex="-1"></iframe></a></li>
+          <li class="live up"><a href="demo/osmon-fotiha.html" target="_blank" rel="noopener"><iframe data-src="demo/osmon-fotiha.html?card=1" title="Fotiha to‘yi" tabindex="-1"></iframe></a></li>
+          <li class="live"><a href="demo/bordo-yubiley.html" target="_blank" rel="noopener"><iframe data-src="demo/bordo-yubiley.html?card=1" title="Yubiley" tabindex="-1"></iframe></a></li>
+          <li class="live up"><a href="demo/pushti-qiz.html" target="_blank" rel="noopener"><iframe data-src="demo/pushti-qiz.html?card=1" title="Qiz bazmi" tabindex="-1"></iframe></a></li>
+          <li class="live"><a href="demo/tun-korporativ.html" target="_blank" rel="noopener"><iframe data-src="demo/tun-korporativ.html?card=1" title="Korporativ" tabindex="-1"></iframe></a></li>
+          <li class="live up"><a href="demo/oltin-toy.html" target="_blank" rel="noopener"><iframe data-src="demo/oltin-toy.html?card=1" title="Nikoh to‘yi" tabindex="-1"></iframe></a></li>
+        </ul>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="wrap features-in">
+      <div class="features-text" data-reveal>
+        <span class="chip" data-l="ftChip">Tadbirlar</span>
+        <h2 data-l="ftH">Mehmon nimani ko‘radi</h2>
+        <p data-l="ftP">Barcha muhim ma’lumotlar va qulay detallar bilan chiroyli taklifnoma.</p>
+        <a class="more" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="more">Batafsil</span><span class="arrow" aria-hidden="true"></span></a>
+      </div>
+      <div class="fcards">
+        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+          <h3 data-l="f1h">Musiqa bilan ochiladi</h3>
+          <p data-l="f1p">Mehmonlar tadbiringizning o‘ziga xos muhitini his qiladi.</p>
+          <img src="img/l/f-music.webp" width="360" height="273" alt="" loading="lazy">
+        </a>
+        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:90ms">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <h3 data-l="f2h">Ismi bilan murojaat</h3>
+          <p data-l="f2p">Har bir mehmonga shaxsiy murojaat.</p>
+          <img src="img/l/f-name.webp" width="333" height="273" alt="" loading="lazy">
+        </a>
+        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:60ms">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M9 14h2v3"/></svg>
+          <h3 data-l="f3h">Taymer va yo‘nalish</h3>
+          <p data-l="f3p">Tadbirgacha taymer va qulay yo‘nalish.</p>
+          <img src="img/l/f-map.webp" width="360" height="270" alt="" loading="lazy">
+        </a>
+        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:150ms">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8C10 4 6 4 6 7s6 1 6 1 6 2 6-1-4-3-6 1"/></svg>
+          <h3 data-l="f4h">Kelaman yoki yo‘q</h3>
+          <p data-l="f4p">Mehmonlar javob beradi, siz ro‘yxatni ko‘rasiz.</p>
+          <img src="img/l/f-rsvp.webp" width="333" height="270" alt="" loading="lazy">
+        </a>
+        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:120ms">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg>
+          <h3 data-l="f5h">O‘zbekcha va ruscha</h3>
+          <p data-l="f5p">Bir tilda yoki ikkala tilda birga.</p>
+          <img src="img/l/f-lang.webp" width="360" height="267" alt="" loading="lazy">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section class="prices" id="prices">
+    <svg class="wave-top" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V18 C 1180 4 900 2 640 0 C 420 0 230 30 0 64 Z"/></svg>
+    <img class="pr-leaves" src="img/l/pr-leaves.webp" width="153" height="675" alt="" loading="lazy">
+    <img class="pr-silk" src="img/l/pr-silk.webp" width="774" height="141" alt="" loading="lazy">
+    <div class="wrap prices-in">
+      <div class="prices-text" data-reveal>
+        <span class="chip chip--dark" data-l="prChip">Tariflar</span>
+        <h2 data-l="prH">Bitta tadbir narxi</h2>
+        <p data-l="prP">3 kun bepul sinab ko‘ring, yoqsa to‘lang. Ikkinchi taklifnomaga −50%.</p>
+      </div>
+      <article class="plan" data-reveal style="--d:100ms">
+        <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg>
+        <h3 data-l="planStart">Oddiy</h3>
+        <p class="price"><span data-price="start">49 000</span> <span data-l="sum">so‘m</span></p>
+        <p class="plan-f" data-l="planStartP">Har qanday rang va fon, animatsiya, musiqa, taymer, xarita.</p>
+        <a class="btn btn--line" href="create.html" data-l="planStartBtn">Yaratish</a>
+      </article>
+      <article class="plan plan--premium" data-reveal style="--d:200ms">
+        <span class="badge" data-l="badge">Ommabop</span>
+        <h3>Premium</h3>
+        <p class="price"><span data-price="premium">99 000</span> <span data-l="sum">so‘m</span></p>
+        <p class="plan-f" data-l="planPremP">Yana o‘z rasm yoki video foningiz, mehmonlar hisoboti va barcha imkoniyatlar.</p>
+        <a class="btn btn--gold" href="create.html"><span data-l="planPremBtn">Yaratishni boshlash</span><span class="arrow" aria-hidden="true"></span></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ORGANIZERS -->
+  <section class="org" id="org">
+    <img class="org-photo" src="img/l/org.webp" width="1200" height="660" alt="Taklif konstruktori noutbukda" loading="lazy" data-reveal>
+    <div class="wrap org-in">
+      <div class="org-text" data-reveal style="--d:120ms">
+        <span class="chip" data-l="orgChip">Tashkilotchilar uchun</span>
+        <h2 data-l="orgH">Tadbir tashkil qiladiganlar uchun</h2>
+        <p data-l="orgP">Mijozlarga promokodingizni bering: ularga chegirma, sizga qo‘shimcha imkoniyatlar.</p>
+        <a class="more" id="partnerLink" href="#faq"><span data-l="more">Batafsil</span><span class="arrow" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <img class="faq-leaves" src="img/l/faq-leaves.webp" width="396" height="468" alt="" loading="lazy">
+    <div class="wrap faq-in">
+      <div class="faq-head" data-reveal>
+        <span class="chip" data-l="faqChip">Savollar</span>
+        <h2 data-l="faqH">Ko‘p beriladigan savollar</h2>
+      </div>
+      <div class="qa" data-reveal style="--d:120ms">
+        <details><summary data-l="q1">Bepul sinov qanday ishlaydi?</summary><p data-l="a1">Yaratish va tahrirlash bepul. Keyin 3 kunlik sinovni boshlaysiz: taklifnoma to‘liq ishlaydi, 20 tagacha mehmon. Yoqsa, to‘laysiz va u abadiy, cheklovsiz qoladi.</p></details>
+        <details><summary data-l="q2">E’lon qilgandan keyin o‘zgartirsa bo‘ladimi?</summary><p data-l="a2">Ha, istalgancha. Dizaynni almashtirsangiz ham ismlar, sana va suratlar saqlanadi, havola o‘sha qoladi.</p></details>
+        <details><summary data-l="q3">O‘z videomni qo‘ysam bo‘ladimi?</summary><p data-l="a3">Premium’da vertikal rasm yoki mp4 video fon bo‘ladi, masalan SYNTX’da tayyorlangan.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <img class="cta-flowers" src="img/l/cta-flowers.webp" width="570" height="480" alt="" loading="lazy">
+    <img class="cta-candles" src="img/l/cta-candles.webp" width="579" height="480" alt="" loading="lazy">
+    <div class="wrap cta-in" data-reveal>
+      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg>
+      <h2 data-l="ctaH">Taklifnomangizni hoziroq yarating</h2>
+      <p data-l="ctaP">Tez. Chiroyli. Bepul.</p>
+      <a class="btn btn--gold" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="arrow" aria-hidden="true"></span></a>
+    </div>
+  </section>
+</main>
+
+<div class="dock" id="dock">
+  <p><span data-l="dockHint">3 kun bepul</span><span data-l="dockFrom">49 000 so‘mdan</span></p>
+  <a class="btn btn--dark" href="create.html" data-l="create">Taklifnoma yaratish</a>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="wordmark" href="./" data-brand>Taklif</a>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#org" data-l="navServices">Xizmatlar</a>
+      <a href="#events" data-l="navEvents">Tadbir turlari</a>
+      <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
+      <a href="#prices" data-l="navPrices">Narxlar</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="socials" id="socials"></div>
+    <span class="langs foot-langs"><button type="button" data-lang-btn="uz" aria-pressed="true">uz</button><button type="button" data-lang-btn="ru" aria-pressed="false">ru</button></span>
+    <p class="copy">© 2026 <span data-brand>Taklif</span>. <span data-l="rights">Barcha huquqlar himoyalangan.</span></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var cfg = {"events":[{"id":"toy","pair":true,"title":{"uz":"Nikoh to‘yi","ru":"Свадьба"},"name1":{"uz":"Kuyov ismi","ru":"Имя жениха"},"name2":{"uz":"Kelin ismi","ru":"Имя невесты"},"text":{"uz":"Assalomu alaykum! Sizni farzandlarimiz {names}ning nikoh to‘yi munosabati bilan bo‘ladigan dasturxonimizga lutfan taklif etamiz.","ru":"Дорогие гости! Приглашаем вас разделить с нами радость свадьбы наших детей — {names}."},"themes":["oltin","zumrad","bordo","osmon"]},{"id":"fotiha","pair":true,"title":{"uz":"Fotiha to‘yi","ru":"Фатиха-той"},"name1":{"uz":"Kuyov ismi","ru":"Имя жениха"},"name2":{"uz":"Kelin ismi","ru":"Имя невесты"},"text":{"uz":"Sizni farzandlarimiz {names}ning fotiha to‘yiga lutfan taklif etamiz.","ru":"Приглашаем вас на фатиха-той наших детей — {names}."},"themes":["osmon","oltin","zumrad"]},{"id":"sunnat","pair":false,"title":{"uz":"Sunnat to‘yi","ru":"Сундет-той"},"name1":{"uz":"O‘g‘lingiz ismi","ru":"Имя сына"},"text":{"uz":"Sizni o‘g‘limiz {names}ning sunnat to‘yi munosabati bilan bo‘ladigan bazmimizga taklif etamiz.","ru":"Приглашаем вас на сундет-той нашего сына {names}."},"themes":["zumrad","tun","oltin"]},{"id":"beshik","pair":false,"title":{"uz":"Beshik to‘yi","ru":"Бешик-той"},"name1":{"uz":"Chaqaloq ismi","ru":"Имя малыша"},"text":{"uz":"Sizni nevaramiz {names}ning beshik to‘yiga lutfan taklif etamiz.","ru":"Приглашаем вас на бешик-той нашего малыша — {names}."},"themes":["pushti","osmon","oltin"]},{"id":"qiz","pair":false,"title":{"uz":"Qiz bazmi","ru":"Киз-базми"},"name1":{"uz":"Kelin ismi","ru":"Имя невесты"},"text":{"uz":"Sizni {names}ning qiz bazmiga taklif etamiz.","ru":"Приглашаем вас на киз-базми — {names}."},"themes":["pushti","bordo","oltin"]},{"id":"tugilgan","pair":false,"title":{"uz":"Tug‘ilgan kun","ru":"День рождения"},"name1":{"uz":"Kimning tug‘ilgan kuni","ru":"Чей день рождения"},"text":{"uz":"Sizni {names}ning tug‘ilgan kuniga bag‘ishlangan bayramga taklif etamiz!","ru":"Приглашаем вас на день рождения — {names}!"},"themes":["pushti","tun","osmon"]},{"id":"yubiley","pair":false,"title":{"uz":"Yubiley","ru":"Юбилей"},"name1":{"uz":"Yubilyar ismi","ru":"Имя юбиляра"},"text":{"uz":"Sizni {names}ning yubileyiga bag‘ishlangan tantanaga taklif etamiz.","ru":"Приглашаем вас на юбилей — {names}."},"themes":["tun","bordo","oltin"]},{"id":"korporativ","pair":false,"title":{"uz":"Korporativ kecha","ru":"Корпоратив"},"name1":{"uz":"Kompaniya nomi","ru":"Название компании"},"text":{"uz":"Sizni {names} jamoasining bayram kechasiga taklif etamiz.","ru":"Приглашаем вас на праздничный вечер команды {names}."},"themes":["tun","zumrad","osmon"]},{"id":"boshqa","pair":false,"title":{"uz":"Boshqa tadbir","ru":"Другое событие"},"name1":{"uz":"Tadbir nomi","ru":"Название события"},"text":{"uz":"Sizni {names} tadbiriga taklif etamiz.","ru":"Приглашаем вас на мероприятие — {names}."},"themes":["oltin","tun","zumrad"]}],"themes":[{"id":"oltin","name":{"uz":"Oltin","ru":"Золото"},"bg":"#f8f1e4","bg2":"#ecdcbf","ink":"#4a3a22","gold":"#b08a3e","petal":"#efc2bd","dark":false},{"id":"zumrad","name":{"uz":"Zumrad","ru":"Изумруд"},"bg":"#0f3b2e","bg2":"#1a5443","ink":"#f6ecd2","gold":"#d8b562","petal":"#f5e6c4","dark":true},{"id":"osmon","name":{"uz":"Osmon","ru":"Небо"},"bg":"#e9eff5","bg2":"#cad8e6","ink":"#2c3e55","gold":"#6f8db0","petal":"#ffffff","dark":false},{"id":"bordo","name":{"uz":"Bordo","ru":"Бордо"},"bg":"#4a1220","bg2":"#68202f","ink":"#f7e7d3","gold":"#d9b36c","petal":"#f3c6cf","dark":true},{"id":"tun","name":{"uz":"Tun","ru":"Ночь"},"bg":"#111a33","bg2":"#1f2b50","ink":"#f2e9d8","gold":"#dcbb6f","petal":"#f4e3b5","dark":true},{"id":"pushti","name":{"uz":"Pushti","ru":"Пудра"},"bg":"#fbeef0","bg2":"#f2d6dc","ink":"#5a3440","gold":"#c0935a","petal":"#f5bccb","dark":false}],"labels":{"uz":{"open":"Taklifnomani ochish","dear":"Hurmatli","date":"Sana","time":"Vaqt","place":"Manzil","route":"Yo‘nalish","left":"Tadbirgacha","days":"kun","hours":"soat","mins":"daqiqa","secs":"soniya","started":"Tadbir boshlandi","hosts":"Hurmat bilan","rsvpTitle":"Kelasizmi?","rsvpName":"Ismingiz","rsvpCount":"Necha kishi","yes":"Albatta boraman","no":"Afsuski, kela olmayman","send":"Javob yuborish","thanks":"Rahmat","made":"Siz ham taklifnoma yarating","draft":"NAMUNA","notPublished":"Bu taklifnoma hali e‘lon qilinmagan","music":"Musiqa","expired":"Taklifnomaning sinov muddati tugagan","expiredHint":"Egasi uni qayta faollashtirishi bilan yana ochiladi.","parents1":"Kuyovning ota-onasi","parents2":"Kelinning ota-onasi","parents":"Ota-onalar","program":"Tadbir dasturi","calendar":"Kalendarga qo‘shish","gallery":"Suratlar","wishes":"Tilaklar kitobi","wishName":"Ismingiz","wishText":"Tilagingiz","wishSend":"Tilak qoldirish","wishThanks":"Rahmat! Tilagingiz qo‘shildi.","noWishes":"Birinchi bo‘lib tilak qoldiring.","gift":"Sovg‘a uchun","giftHint":"Kelolmasangiz yoki sovg‘a yubormoqchi bo‘lsangiz:","copy":"Nusxa olish","copied":"Nusxa olindi","people":"Necha kishi bilan kelasiz","yourName":"Ismingiz","limit":"Javoblar soni chegarasiga yetildi.","answered":"Javobingiz saqlandi. Uni istalgan vaqtda o‘zgartirishingiz mumkin.","change":"Javobni o‘zgartirish","yesShort":"Ha","noShort":"Yo‘q","dearGuest":"Aziz mehmon"},"ru":{"open":"Открыть приглашение","dear":"Дорогой гость","date":"Дата","time":"Время","place":"Место","route":"Маршрут","left":"До события","days":"дн","hours":"ч","mins":"мин","secs":"сек","started":"Событие началось","hosts":"С уважением","rsvpTitle":"Вы придёте?","rsvpName":"Ваше имя","rsvpCount":"Сколько человек","yes":"Обязательно приду","no":"К сожалению, не смогу","send":"Отправить ответ","thanks":"Спасибо","made":"Создайте своё приглашение","draft":"ОБРАЗЕЦ","notPublished":"Это приглашение ещё не опубликовано","music":"Музыка","expired":"Пробный период приглашения закончился","expiredHint":"Оно снова откроется, как только владелец его активирует.","parents1":"Родители жениха","parents2":"Родители невесты","parents":"Родители","program":"Программа дня","calendar":"Добавить в календарь","gallery":"Фотографии","wishes":"Книга пожеланий","wishName":"Ваше имя","wishText":"Ваше пожелание","wishSend":"Оставить пожелание","wishThanks":"Спасибо! Пожелание добавлено.","noWishes":"Оставьте пожелание первым.","gift":"Для подарка","giftHint":"Если не сможете прийти или захотите отправить подарок:","copy":"Скопировать","copied":"Скопировано","people":"Сколько вас будет","yourName":"Ваше имя","limit":"Достигнут лимит ответов.","answered":"Ответ сохранён. Его можно изменить в любое время.","change":"Изменить ответ","yesShort":"Да","noShort":"Нет","dearGuest":"Дорогой гость"}},"months":{"uz":["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentabr","oktabr","noyabr","dekabr"],"ru":["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]},"weekdays":{"uz":["yakshanba","dushanba","seshanba","chorshanba","payshanba","juma","shanba"],"ru":["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"]},"planFeatures":{"start":{"media":false,"music":true,"rsvpList":false,"guestLinks":false,"gallery":false,"wishes":false,"gift":true},"premium":{"media":true,"music":true,"rsvpList":true,"guestLinks":true,"gallery":true,"wishes":true,"gift":true}},"questions":[{"id":"transfer","type":"yesno","text":{"uz":"Transport kerakmi?","ru":"Нужен трансфер?"}},{"id":"food","type":"text","text":{"uz":"Taom bo‘yicha istaklar","ru":"Пожелания по еде"}},{"id":"song","type":"text","text":{"uz":"Qaysi qo‘shiqni eshitmoqchisiz?","ru":"Какую песню поставить?"}}],"brand":"Taklif","prices":{"start":49000,"premium":99000},"providers":{"payme":false,"click":false,"telegram":false,"test":true},"bot":"","contact":"","proof":0,"social":{"instagram":"","telegram":"","facebook":"","youtube":""}};
+  cfg.bot = ''; cfg.providers = {};
+  var f = window.fetch.bind(window);
+  window.fetch = function (u, o) {
+    if (String(u).indexOf('/api/config') === 0) return Promise.resolve(new Response(JSON.stringify(cfg), { headers: { 'content-type': 'application/json' } }));
+    return f(u, o);
+  };
+})();
+</script>
+<script src="js/i18n.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>

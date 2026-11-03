@@ -1,0 +1,91 @@
+/* Taklif brand system: shared by the landing page, the builder and the admin.
+ * Cream, gold and dark brown from the client mockup; Apple-style restraint: one primary action per view,
+ * 8px rhythm, soft depth, springy press feedback, 44px hit targets, motion that never blocks content. */
+:root {
+  color-scheme: light;
+  --cream: #f7efe4; --cream-2: #f3e7d8; --cream-3: #ead9c3; --paper: #fffaf3; --surface: #fffdf9;
+  --ink: #2f1d12; --ink-2: #5a4636; --muted: #8a7563; --line: #e6d6c1; --line-2: #d8c3a6;
+  --brown: #3a2416; --brown-2: #4b2f1c; --brown-3: #2a190f;
+  --gold-1: #b8894a; --gold-2: #e3c48f; --gold-3: #f4e4c1; --gold-ink: #fffaf1;
+  --emerald: #0f3b2e; --emerald-2: #1a5443;
+  --ok: #2f8a4f; --err: #c0392b; --white: #ffffff;
+  --scrim: rgba(42, 25, 15, 0.42);
+  --glass: rgba(250, 244, 236, 0.78);
+  --shadow-s: 0 1px 2px rgba(74, 47, 28, 0.06), 0 8px 24px -12px rgba(74, 47, 28, 0.28);
+  --shadow: 0 2px 6px rgba(74, 47, 28, 0.06), 0 24px 50px -24px rgba(74, 47, 28, 0.38);
+  --shadow-l: 0 40px 80px -30px rgba(47, 29, 18, 0.55);
+  --ring: 0 0 0 4px rgba(184, 137, 74, 0.28);
+  --f-display: "Yeseva One", Georgia, serif;
+  --f-body: "Manrope", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --r-s: 10px; --r: 16px; --r-l: 24px; --r-xl: 32px;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 160ms; --t: 280ms; --t-slow: 600ms;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; background: var(--cream); color: var(--ink); font: 400 16px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+h1, h2, h3 { margin: 0; font-family: var(--f-display); font-weight: 400; line-height: 1.08; letter-spacing: -0.01em; color: var(--ink); overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; }
+img, video { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--gold-1); outline-offset: 3px; }
+::selection { background: var(--gold-3); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- controls ---------- */
+.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: var(--s3); min-height: 48px; padding: 0 var(--s5); border: 0; border-radius: 999px; font: 600 15px/1 var(--f-body); letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; cursor: pointer; user-select: none; transition: transform var(--t-fast) var(--ease), box-shadow var(--t) var(--ease), background-color var(--t) var(--ease), color var(--t) var(--ease), opacity var(--t) var(--ease); }
+.btn:active { transform: scale(0.97); }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; }
+.btn[aria-busy="true"] { cursor: progress; color: transparent !important; }
+.btn[aria-busy="true"]::after { content: ""; position: absolute; left: 50%; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; border: 2px solid var(--gold-3); border-top-color: transparent; animation: spin 0.7s linear infinite; }
+.btn--dark { background: var(--brown); color: var(--gold-3); }
+.btn--dark:hover { background: var(--ink); }
+.btn--gold { min-height: 56px; padding: 0 10px 0 28px; background: linear-gradient(100deg, var(--gold-1), var(--gold-2) 55%, var(--gold-1)); background-size: 160% 100%; background-position: 0 0; color: var(--gold-ink); box-shadow: 0 14px 30px -14px rgba(184, 137, 74, 0.9); text-shadow: 0 1px 1px rgba(74, 47, 28, 0.25); }
+.btn--gold:hover { background-position: 100% 0; box-shadow: 0 18px 36px -14px rgba(184, 137, 74, 1); }
+.btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-2); }
+.btn--ghost:hover { background: var(--cream-2); }
+.btn--line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--gold-1); }
+.btn--line:hover { background: var(--gold-3); }
+.btn--sm { min-height: 40px; padding: 0 var(--s4); font-size: 14px; }
+.arrow { position: relative; display: inline-block; width: 16px; height: 16px; flex: none; transition: transform var(--t) var(--ease); }
+.arrow::before { content: ""; position: absolute; left: 1px; right: 2px; top: 50%; height: 1.6px; margin-top: -0.8px; background: currentColor; border-radius: 1px; }
+.arrow::after { content: ""; position: absolute; right: 1px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-top: 1.6px solid currentColor; border-right: 1.6px solid currentColor; transform: rotate(45deg); }
+.arrow--l { transform: scaleX(-1); }
+.btn--gold .arrow { width: 38px; height: 38px; border-radius: 50%; background: rgba(255, 255, 255, 0.28); }
+.btn--gold .arrow::before { left: 11px; right: 12px; }
+.btn--gold .arrow::after { right: 12px; }
+.btn:hover .arrow, .more:hover .arrow { transform: translateX(3px); }
+.chip { display: inline-flex; align-items: center; min-height: 26px; padding: 0 var(--s3); border-radius: 999px; background: var(--cream-3); color: var(--ink-2); font: 600 12px/1 var(--f-body); }
+.langs { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--cream-3); }
+.langs button { position: relative; min-width: 40px; min-height: 30px; border: 0; border-radius: 999px; background: transparent; color: var(--ink-2); font: 700 12px/1 var(--f-body); cursor: pointer; transition: background-color var(--t) var(--ease), color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.langs button::before { content: ""; position: absolute; inset: -7px -2px; }
+.langs button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-s); }
+
+/* segmented control (iOS) */
+.seg { display: inline-flex; flex-wrap: wrap; gap: 2px; margin: 0; padding: 3px; border: 0; border-radius: 12px; background: var(--cream-3); }
+.seg legend { float: left; width: 100%; margin-bottom: var(--s2); padding: 0; font: 600 13px/1.3 var(--f-body); color: var(--ink-2); }
+.seg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.seg label { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 var(--s4); border-radius: 9px; font: 600 14px/1 var(--f-body); color: var(--ink-2); cursor: pointer; transition: background-color var(--t) var(--ease), color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.seg label:hover { color: var(--ink); }
+.seg input:checked + label { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-s); }
+.seg input:focus-visible + label { outline: 2px solid var(--gold-1); outline-offset: 1px; }
+
+/* toast */
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 90; display: inline-flex; align-items: center; gap: var(--s2); max-width: calc(100vw - 32px); padding: 12px 18px; border-radius: 999px; background: var(--brown-3); color: var(--gold-3); font: 600 14px/1.3 var(--f-body); box-shadow: var(--shadow); transform: translate(-50%, 20px); opacity: 0; pointer-events: none; transition: transform var(--t) var(--spring), opacity var(--t) var(--ease); }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+.toast.is-error { background: var(--err); color: var(--white); }
+
+/* scroll reveal: content is visible by default; script opts in with .js-reveal */
+.js-reveal [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease); transition-delay: var(--d, 0ms); }
+.js-reveal [data-reveal].in { opacity: 1; transform: none; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .js-reveal [data-reveal] { opacity: 1; transform: none; }
+}
