@@ -637,6 +637,14 @@
     if (q.get('open')) { open(q.get('open')); return; }
     $('#previewEmpty').hidden = true;
     $('#previewFrame').src = '/demo/oltin?event=toy';
+    // from the designs gallery: /create?event=toy&theme=anor starts with that event and collection
+    var qe = q.get('event'), qt = q.get('theme');
+    if (cfg.events.some(function (e) { return e.id === qe; })) {
+      inv.data.event = qe;
+      if (cfg.themes.some(function (x) { return x.id === qt; })) inv.data.theme = qt;
+      chooseEvent(qe);
+      return;
+    }
     go(1);
     if (q.get('mine')) openMine();
   });

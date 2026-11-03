@@ -1,0 +1,29 @@
+/* All designs (/designs): every collection as a live sample of the chosen event.
+ * Tokens, header and controls come from brand.css / app.css. */
+.dz-head { max-width: 1200px; margin: 0 auto; padding: var(--s7) var(--s5) var(--s5); }
+.dz-head h1 { margin-top: var(--s3); font-size: clamp(34px, 5vw, 56px); }
+.dz-lead { margin-top: var(--s3); max-width: 56ch; color: var(--ink-2); font-size: 17px; }
+.dz-events { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s5); }
+.dz-events button { min-height: 40px; padding: 0 var(--s4); border: 0; border-radius: 999px; background: var(--cream-3); color: var(--ink-2); font: 600 14px/1 var(--f-body); cursor: pointer; transition: background-color var(--t) var(--ease), color var(--t) var(--ease), transform var(--t-fast) var(--ease); }
+.dz-events button:hover { background: var(--gold-3); }
+.dz-events button:active { transform: scale(0.97); }
+.dz-events button[aria-checked="true"] { background: var(--brown); color: var(--gold-3); }
+
+.dz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--s6) var(--s5); max-width: 1200px; margin: 0 auto; padding: var(--s3) var(--s5) var(--s9); }
+.dz { display: flex; flex-direction: column; gap: var(--s3); min-width: 0; }
+.dz-prev { position: relative; display: block; aspect-ratio: 9 / 14; overflow: hidden; border-radius: var(--r); background: var(--cream-3); box-shadow: var(--shadow); transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease); }
+.dz-prev:hover { transform: translateY(-4px); box-shadow: var(--shadow-l); }
+.dz-prev iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.dz-prev .chip { position: absolute; z-index: 1; left: var(--s3); top: var(--s3); background: var(--surface); box-shadow: var(--shadow-s); }
+.dz-name { font: 600 16px/1.3 var(--f-body); }
+.dz-btns { display: flex; gap: var(--s2); }
+.dz-btns .btn { flex: 1; }
+
+@media (max-width: 600px) {
+  .dz-head { padding: var(--s6) var(--s4) var(--s4); }
+  .dz-events { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--s4)); padding-inline: var(--s4); scrollbar-width: none; }
+  .dz-events::-webkit-scrollbar { display: none; }
+  .dz-events button { flex: none; }
+  .dz-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s3); padding-inline: var(--s4); }
+  .dz-btns { flex-direction: column; }
+}
