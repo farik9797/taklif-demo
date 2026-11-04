@@ -1,4 +1,5 @@
 /* Bosh sahifa harakati: GSAP + ScrollTrigger. ES2017.
+ * One movement leads (the invitation card); the rest only enters once or follows the scroll.
  * Page works fully without it: html.motion only hides the hero copy until the intro plays,
  * and a fallback in index.html removes the class if GSAP never arrives. */
 (function () {
@@ -36,8 +37,6 @@
   // the card floats over the scene; on scroll it lifts faster than the backdrop
   intro.add(function () {
     gsap.to('.hero-card', { y: -12, rotation: 3.6, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-    gsap.to('.pill--music', { y: -10, duration: 2.8, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-    gsap.to('.pill--rsvp', { y: 9, duration: 3.3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
   });
   gsap.to('.hero-photo', {
     yPercent: 8, ease: 'none',
@@ -90,33 +89,6 @@
       scrollTrigger: { trigger: d[1], start: 'top bottom', end: 'bottom top', scrub: true }
     });
   });
-
-  // ---------- prices: the premium plan breathes, stars turn ----------
-  mm.add('(min-width: 900px)', function () {
-    gsap.to('.plan--premium', { y: -8, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
-  });
-  gsap.utils.toArray('.star').forEach(function (s) {
-    gsap.to(s, { rotate: 90, duration: 10, ease: 'none', repeat: -1 });
-  });
-
-  // ---------- gold dust over the hero and the closing band ----------
-  function dust(host, count) {
-    var box = document.createElement('div');
-    box.className = 'dust';
-    box.setAttribute('aria-hidden', 'true');
-    for (var i = 0; i < count; i++) box.appendChild(document.createElement('i'));
-    host.appendChild(box);
-    gsap.utils.toArray(box.children).forEach(function (p) {
-      gsap.set(p, { left: gsap.utils.random(0, 100) + '%', top: gsap.utils.random(0, 100) + '%', scale: gsap.utils.random(0.4, 1.2) });
-      gsap.to(p, {
-        y: gsap.utils.random(-90, -30), x: gsap.utils.random(-24, 24), opacity: gsap.utils.random(0.5, 1),
-        duration: gsap.utils.random(4, 8), delay: gsap.utils.random(0, 4),
-        ease: 'sine.inOut', yoyo: true, repeat: -1
-      });
-    });
-  }
-  mm.add('(min-width: 900px)', function () { dust(document.querySelector('.hero'), 22); });
-  dust(document.querySelector('.cta'), 16);
 
   // sizes settle once fonts and the sample frames load
   window.addEventListener('load', function () { window.ScrollTrigger.refresh(); });
