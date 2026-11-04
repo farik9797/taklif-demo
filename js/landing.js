@@ -3,39 +3,30 @@
   'use strict';
   // Russian copy mirrors the Uzbek in index.html, which the page reads as its own dictionary.
   var RU = {
-    navServices: 'Услуги', navEvents: 'Виды событий', navFeatures: 'Возможности', navPrices: 'Цены', create: 'Создать приглашение',
-    navDesigns: 'Дизайны', navHow: 'Как это работает', navFaq: 'Вопросы', createFree: 'Создать бесплатно', seeSample: 'Посмотреть образец',
-    fact1: 'Без регистрации', fact2: '3 дня бесплатно', fact3: 'Платите, если понравится', tagPrem: 'Premium',
-    heroChip: 'Онлайн-сервис', heroH1: 'Живое приглашение на той за', heroH1b: '10 минут', openSample: 'Открыть образец приглашения',
-    heroLead: 'Живая страница с музыкой, таймером, маршрутом и ответами гостей. Отправляете ссылку в Telegram, гость открывает в одно касание.',
-    evChip: 'Дизайны', evH: 'Для любого события', evP: 'Больше 20 дизайнов, у каждого несколько цветов. Нажмите — откроется полный образец.', allDesigns: 'Все дизайны',
-    pillMusic: 'Открывается с музыкой', pillRsvp: 'Приду', pillRsvpS: 'Ответ гостя',
-    tk_toy: 'Свадьба', tk_fotiha: 'Фатиха-той', tk_sunnat: 'Сундет-той', tk_beshik: 'Бешик-той', tk_qiz: 'Киз-базми', tk_tugilgan: 'День рождения', tk_yubiley: 'Юбилей', tk_korporativ: 'Корпоратив',
-    ftChip: 'Возможности', ftH: 'Что видит гость', ftP: 'То, чего не даст бумажное приглашение или видеофайл: дорога, время и ответ — по одной ссылке.', more: 'Узнать больше',
-    f1h: 'Открывается с музыкой', f1p: 'Гости услышат особую атмосферу вашего события.',
-    f2h: 'Обращение по имени', f2p: 'На конверте имя гостя: «Hurmatli Aziz aka!»',
-    f3h: 'Таймер и маршрут', f3p: 'Таймер, «Добавить в календарь» и дорога в Яндекс или Google Картах.',
-    f4h: 'Приду или нет', f4p: 'Гости отвечают, а вы видите в списке, сколько человек придёт.',
-    f5h: 'Узбекский и русский', f5p: 'На одном языке или на двух сразу: понятно и молодым гостям, и старшим.',
-    howChip: 'Как это работает', howH: 'Три шага, без дизайнера',
-    s1h: 'Выберите событие и дизайн', s1p: 'Никах, фатиха, сундет, бешик, день рождения и другие. Больше 20 дизайнов, у каждого несколько цветов.',
-    s2h: 'Впишите имена, дату и место', s2p: 'Текст уже готов, вы ставите своё. Музыка, фото и программа — по желанию.',
-    s3h: 'Отправьте ссылку', s3p: 'В Telegram, WhatsApp или Instagram. Гости отвечают, вы видите список.',
-    prChip: 'Тарифы', prH: 'Цена одного события', prP: 'Разовая оплата, без подписки: приглашение работает бессрочно. 3 дня бесплатно со всеми функциями Premium. Второе приглашение −50%.',
-    ps1: 'Все дизайны и цвета', ps2: 'Музыка и анимация', ps3: 'Таймер, карта, календарь', ps4: 'На узбекском и русском',
-    pp1: 'Всё из тарифа «Обычный»', pp2: 'Своё фото или видео фоном', pp3: 'Именная ссылка каждому гостю', pp4: 'Список ответов и Excel', pp5: 'Фотогалерея и книга пожеланий',
-    planStart: 'Обычный', planStartBtn: 'Создать', sum: 'сум',
-    badge: 'Популярный', planPremBtn: 'Начать создавать',
-    orgChip: 'Для организаторов', partner: 'Стать партнёром', orgH: 'Для тех, кто организует', orgP: 'Тойханам, ведущим, фотографам и флористам: дайте клиентам свой промокод — им скидка, вам доля с каждой оплаты.',
-    faqChip: 'Вопросы', faqH: 'Частые вопросы',
+    navTemplates: 'Шаблоны', navFeatures: 'Возможности', navPrices: 'Тарифы', navPartners: 'Партнёрам', navContacts: 'Контакты',
+    langCode: 'RU', create: 'Создать приглашение', seeExamples: 'Посмотреть примеры', openSample: 'Открыть образец приглашения', scroll: 'Прокрутите вниз',
+    heroChip: 'Цифровые приглашения нового поколения', heroH1: 'Ваш особенный день начинается', heroH1b: 'с красивого', heroH1c: 'приглашения',
+    heroLead: 'Создайте уникальное онлайн-приглашение на свадьбу, той, день рождения или другое важное событие всего за несколько минут.',
+    tplKicker: 'Наша коллекция', tplH: 'Для каждого события — свой стиль', tplP: 'От изысканной свадебной классики до современных минималистичных решений.', allTemplates: 'Смотреть все шаблоны',
+    tToy: 'Свадебные приглашения', tBirthday: 'День рождения', tQiz: 'Киз базми', tFotiha: 'Фотиха туйи', tSunnat: 'Суннат туй', tBeshik: 'Бешик туй', tKorp: 'Корпоратив',
+    ftChip: 'Больше, чем просто приглашение', ftH: 'Всё, что нужно вашим гостям, в одном месте', ftP: 'Ваше приглашение становится полноценной страницей события, где каждая деталь продумана.', more: 'Узнать больше',
+    f1h: 'Музыка и атмосфера', f1p: 'Добавьте любимую мелодию', f2h: 'Персональное обращение', f2p: 'Обращение по имени', f3h: 'Обратный отсчёт', f3p: 'Красивый таймер',
+    f4h: 'Место проведения', f4p: 'Добавьте адрес и карту', f5h: 'Подтверждение участия', f5p: 'Узнайте, кто придёт', f6h: 'Два языка', f6p: 'Русский и узбекский',
+    stChip: 'Ваша история', stH: 'Моменты, которыми хочется делиться', stP: 'Добавьте фотографии и видео, расскажите свою историю и создайте особенное настроение.', seeGallery: 'Посмотреть галерею',
+    howChip: 'Как это работает', howH: 'Создать приглашение легко и быстро', s1: 'Выберите шаблон', s2: 'Заполните информацию', s3: 'Отправьте гостям',
+    prChip: 'Простой выбор. Понятная цена.', prH: 'Выберите свой формат приглашения', prP: 'Никаких сложных тарифов и лишних расходов. Только необходимые возможности.',
+    planStart: 'Обычный', planStartD: 'Для тех, кто хочет красиво пригласить гостей.', ps1: 'Премиальный шаблон', ps2: 'Музыкальное сопровождение', ps3: 'Таймер и карта', planStartBtn: 'Выбрать обычный',
+    badge: 'Популярный', planPremD: 'Максимальная персонализация для особенного события.', pp1: 'Все возможности', pp2: 'Собственные фотографии', pp3: 'Персональное видео', planPremBtn: 'Создать Premium', sum: 'сум',
+    bizH: 'Ваш бизнес заслуживает современных решений', bizP: 'Предлагайте клиентам цифровые приглашения и получайте новые возможности для развития.', partner: 'Стать партнёром',
+    faqH: 'Остались вопросы?', faqP: 'Найдите ответы на популярные вопросы или свяжитесь с нами.', faqAll: 'Перейти к FAQ',
+    q2: 'Можно ли изменить приглашение после публикации?', a2: 'Да, сколько угодно. Даже при смене дизайна имена, дата и фото сохраняются, а ссылка остаётся прежней.',
+    q3: 'Можно добавить свои фотографии и видео?', a3: 'Да, на Premium: фотогалерея, а фоном — вертикальное фото или видео mp4.',
+    q5: 'Как отправить приглашение гостям?', a5: 'Одной ссылкой: в Telegram, WhatsApp, Instagram или по SMS. На Premium каждому гостю — своя именная ссылка.',
     q1: 'Как работает бесплатный период?', a1: 'Создание и редактирование бесплатны. Затем вы запускаете пробный период на 3 дня: приглашение работает полностью, до 20 гостей. Понравится — оплатите, и оно останется навсегда, без ограничений.',
-    q2: 'Можно изменить после публикации?', a2: 'Да, сколько угодно. Даже при смене дизайна имена, дата и фото сохраняются, а ссылка остаётся прежней.',
-    q3: 'Можно поставить своё видео?', a3: 'На Premium вертикальное фото или видео mp4 станет фоном, например сделанное в SYNTX.',
     q4: 'Нужна регистрация?', a4: 'Нет. Начинаете сразу на сайте или в Telegram, черновик сохраняется в этом браузере или в вашем Telegram-аккаунте.',
-    q5: 'Как отправить гостям?', a5: 'Одной ссылкой: в Telegram, WhatsApp, Instagram или по SMS. На Premium каждому гостю — своя именная ссылка.',
     q6: 'Что будет, если не оплатить через 3 дня?', a6: 'Гости увидят надпись «срок истёк». Всё сохранится: после оплаты приглашение сразу откроется снова.',
-    ctaH: 'Создайте своё приглашение прямо сейчас', ctaP: 'Начните бесплатно и посмотрите. Понравится — оплатите.',
-    mine: 'Мои приглашения', rights: 'Все права защищены.', dockHint: '3 дня бесплатно', dockFrom: 'от 49 000 сум'
+    ctaH: 'Ваш особенный день заслуживает особенного приглашения', ctaP: 'Создайте красивую страницу события и начните праздновать ещё до встречи.', ctaNote: 'Создание занимает около 10 минут',
+    tagline: 'Искусство приглашать красиво.', mine: 'Мои приглашения', rights: 'Все права защищены.', dockHint: '3 дня бесплатно', dockFrom: 'от 49 000 сум'
   };
   var UZ = {};
   var nodes = document.querySelectorAll('[data-l]');
@@ -69,7 +60,7 @@
   var nav = document.querySelector('.nav');
   var dock = document.getElementById('dock');
   var hero = document.querySelector('.hero');
-  var cta = document.querySelector('.cta');
+  var cta = document.querySelector('.final');
   function onScroll() {
     var y = window.pageYOffset;
     nav.classList.toggle('scrolled', y > 8);
@@ -90,42 +81,23 @@
     Array.prototype.forEach.call(document.querySelectorAll('[data-reveal]'), function (n) { ro.observe(n); });
   }
 
-  // ---------- karusel ----------
-  var rail = document.getElementById('rail');
-  var items = rail.querySelectorAll('li');
-  var dots = document.getElementById('dots');
-  Array.prototype.forEach.call(items, function () { dots.appendChild(document.createElement('span')); });
-  function step() { return items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : rail.clientWidth; }
-  document.getElementById('prev').addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }); });
-  document.getElementById('next').addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }); });
-  var prev = document.getElementById('prev');
-  var next = document.getElementById('next');
-  function syncDots() {
-    var i = Math.round(rail.scrollLeft / step());
-    Array.prototype.forEach.call(dots.children, function (d, k) { d.className = k === i ? 'on' : ''; });
-    prev.disabled = rail.scrollLeft < 4;
-    next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
-  }
-  rail.addEventListener('scroll', function () { window.requestAnimationFrame(syncDots); }, { passive: true });
-  syncDots();
-  // load sample frames only when the gallery comes near the screen
-  var frames = rail.querySelectorAll('iframe[data-src]');
-  function load(f) { if (!f.src) f.src = f.getAttribute('data-src'); }
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { load(e.target); io.unobserve(e.target); } });
-    }, { root: null, rootMargin: '200px 400px' });
-    Array.prototype.forEach.call(frames, function (f) { io.observe(f); });
-  } else {
-    Array.prototype.forEach.call(frames, load);
-  }
+  // ---------- savollar: first three, the button opens the rest ----------
+  var faqAll = document.getElementById('faqAll');
+  faqAll.addEventListener('click', function () {
+    Array.prototype.forEach.call(document.querySelectorAll('.more-q'), function (d) { d.hidden = false; });
+    faqAll.hidden = true;
+  });
+  // the language menu closes once a language is picked
+  var langMenu = document.querySelector('.lang');
+  langMenu.addEventListener('click', function (e) { if (e.target.closest('button')) langMenu.open = false; });
 
   // ---------- sozlamalar ----------
+  // Lucide 0.469: instagram, send, facebook, youtube
   var ICONS = {
-    instagram: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>',
-    telegram: '<svg viewBox="0 0 24 24"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 8-6"/></svg>',
-    facebook: '<svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg>',
-    youtube: '<svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>'
+    instagram: '<svg viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>',
+    telegram: '<svg viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
+    youtube: '<svg viewBox="0 0 24 24"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>'
   };
   fetch('/api/config').then(function (r) { return r.json(); }).then(function (c) {
     Array.prototype.forEach.call(document.querySelectorAll('[data-brand]'), function (n) { n.textContent = c.brand; });

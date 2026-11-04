@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Taklif: jonli taklifnomalar</title>
-<meta name="description" content="To‘y, sunnat to‘yi, tug‘ilgan kun va boshqa tadbirlar uchun musiqali jonli taklifnoma. Bepul yarating, yoqsa to‘lang. Живые приглашения на той и любое событие.">
-<meta property="og:title" content="Taklif: jonli taklifnoma 10 daqiqada">
-<meta property="og:description" content="Bepul yarating, yoqsa to‘lang va havolani mehmonlarga yuboring.">
+<title>Taklif: onlayn taklifnomalar</title>
+<meta name="description" content="To‘y, tug‘ilgan kun va boshqa muhim tadbirlar uchun chiroyli onlayn taklifnoma bir necha daqiqada. Онлайн-приглашения на свадьбу, той и любое событие.">
+<meta name="theme-color" content="#070907">
+<meta property="og:title" content="Taklif: chiroyli onlayn taklifnoma">
+<meta property="og:description" content="Sizning alohida kuningiz chiroyli taklifnomadan boshlanadi.">
 <meta property="og:image" content="https://farik9797.github.io/taklif-demo/img/l/hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Playfair+Display:wght@500&family=Manrope:wght@400;500;600;700&family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/l/hero-scene.webp">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/l/d-hero.webp">
 <link rel="stylesheet" href="css/landing.css">
 <script>
   // hero copy waits for motion.js; shown anyway if GSAP is slow or blocked
@@ -23,26 +24,41 @@
 </head>
 <body>
 
+<!-- icons: Lucide 0.469 (music, user-round, hourglass, map-pin, circle-check, languages, layout-grid, pen-line, send, arrow-right, play, mouse, chevron-down, plus, check, sparkle) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+</svg>
+
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="wordmark" href="./" data-brand>Taklif</a>
+    <a class="wordmark" href="./"><span data-brand>Taklif</span><svg class="spark" aria-hidden="true"><use href="#i-sparkle"/></svg></a>
     <nav class="nav-links" aria-label="Menu">
-      <a href="#events" data-l="navDesigns">Dizaynlar</a>
+      <a href="#templates" data-l="navTemplates">Shablonlar</a>
       <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
-      <a href="#how" data-l="navHow">Qanday ishlaydi</a>
-      <a href="#prices" data-l="navPrices">Narxlar</a>
-      <a href="#faq" data-l="navFaq">Savollar</a>
+      <a href="#prices" data-l="navPrices">Tariflar</a>
+      <a href="#business" data-l="navPartners">Hamkorlarga</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts" data-l="navContacts">Kontaktlar</a>
     </nav>
-    <a class="btn btn--gold nav-cta" href="create.html" data-l="create">Taklifnoma yaratish</a>
+    <details class="lang">
+      <summary aria-label="Til / Язык"><span data-l="langCode">UZ</span><svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+      <div class="lang-list"><button type="button" data-lang-btn="uz" aria-pressed="true">O‘zbekcha</button><button type="button" data-lang-btn="ru" aria-pressed="false">Русский</button></div>
+    </details>
+    <a class="btn btn--gold btn--sm nav-cta" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="bi"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
     <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span></button>
   </div>
 </header>
 <nav class="menu" id="menu" aria-label="Menu">
-  <a href="#events" data-l="navDesigns">Dizaynlar</a>
+  <a href="#templates" data-l="navTemplates">Shablonlar</a>
   <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
-  <a href="#how" data-l="navHow">Qanday ishlaydi</a>
-  <a href="#prices" data-l="navPrices">Narxlar</a>
-  <a href="#faq" data-l="navFaq">Savollar</a>
+  <a href="#prices" data-l="navPrices">Tariflar</a>
+  <a href="#business" data-l="navPartners">Hamkorlarga</a>
+  <a href="#faq">FAQ</a>
   <a href="create.html" data-l="mine">Taklifnomalarim</a>
   <span class="langs"><button type="button" data-lang-btn="uz" aria-pressed="true">uz</button><button type="button" data-lang-btn="ru" aria-pressed="false">ru</button></span>
   <a class="btn btn--gold" href="create.html" data-l="create">Taklifnoma yaratish</a>
@@ -51,216 +67,181 @@
 <main>
   <!-- HERO -->
   <section class="hero">
+    <img class="hero-bg" src="img/l/d-hero.webp" width="1376" height="774" alt="" fetchpriority="high">
     <div class="hero-art">
-      <img class="hero-photo" src="img/l/hero-scene.webp" width="1472" height="1454" alt="" fetchpriority="high">
       <a class="hero-card face" href="demo/zumrad-toy.html" target="_blank" rel="noopener">
         <img src="img/l/card-emerald.webp" width="936" height="1242" alt="">
-        <span class="cf cf--gold" aria-hidden="true"><span class="cf-k">Nikoh to‘yi</span><span class="cf-n">Umid<i>&amp;</i>Dilshoda</span><span class="cf-d">15.08.2026 · 18:00</span><span class="cf-p">Toshkent</span></span>
+        <span class="cf cf--gold" aria-hidden="true"><span class="cf-k">Nikoh to‘yi</span><span class="cf-n">Umid<i>&amp;</i>Dilshoda</span><span class="cf-d">15.08.2026 · 18:00</span><span class="cf-p">Tashkent</span></span>
         <span class="visually-hidden" data-l="openSample">Namunani ochish</span>
       </a>
-      <!-- icons: Lucide music, circle-check -->
-      <span class="pill pill--music" aria-hidden="true"><span class="ico"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span data-l="pillMusic">Musiqa bilan ochiladi</span><span class="eq"><i></i><i></i><i></i></span></span>
-      <span class="pill pill--rsvp" aria-hidden="true"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span><span><span data-l="pillRsvp">Kelaman</span><small data-l="pillRsvpS">Mehmon javobi</small></span></span>
     </div>
     <div class="wrap hero-in">
-      <span class="chip" data-l="heroChip">Onlayn xizmat</span>
-      <h1><span data-l="heroH1">To‘yga jonli taklifnoma,</span> <span class="gold" data-l="heroH1b">10 daqiqada</span></h1>
-      <p class="lead" data-l="heroLead">Musiqa, taymer, xarita va mehmonlar javobi bilan jonli sahifa. Havolani Telegram’da yuborasiz, mehmon bir bosishda ochadi.</p>
+      <span class="chip" data-l="heroChip">Yangi avlod raqamli taklifnomalari</span>
+      <h1><span data-l="heroH1">Sizning alohida kuningiz</span> <em class="gold" data-l="heroH1b">chiroyli taklifnomadan</em> <span data-l="heroH1c">boshlanadi</span></h1>
+      <p class="lead" data-l="heroLead">To‘y, tug‘ilgan kun yoki boshqa muhim tadbir uchun noyob onlayn taklifnomani bir necha daqiqada yarating.</p>
       <div class="hero-cta">
-        <a class="btn btn--gold" href="create.html" data-l="createFree">Bepul yaratish</a>
-        <a class="more" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="seeSample">Namunani ko‘rish</span><span class="arrow" aria-hidden="true"></span></a>
+        <a class="btn btn--gold" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="bi"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+        <a class="btn btn--line" href="designs.html"><span data-l="seeExamples">Namunalarni ko‘rish</span><svg class="play" aria-hidden="true"><use href="#i-play"/></svg></a>
       </div>
-      <ul class="facts">
-        <li data-l="fact1">Ro‘yxatdan o‘tmasdan</li>
-        <li data-l="fact2">3 kun bepul</li>
-        <li data-l="fact3">Yoqsa to‘laysiz</li>
-      </ul>
       <p class="proof" id="proof" hidden><img src="img/l/avatars.webp" width="213" height="69" alt=""><span id="proofText"></span></p>
     </div>
+    <a class="scroll" href="#templates"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="7"/><path d="M12 6v4"/></svg><span data-l="scroll">Pastga suring</span></a>
   </section>
 
-  <!-- EVENT TYPES: a running line, each opens the gallery on that event -->
-  <nav class="ticker" aria-label="Tadbir turlari">
-    <div class="ticker-in"><div class="ticker-list"><a href="designs.html?event=toy"><span data-l="tk_toy">Nikoh to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=fotiha"><span data-l="tk_fotiha">Fotiha to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=sunnat"><span data-l="tk_sunnat">Sunnat to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=beshik"><span data-l="tk_beshik">Beshik to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=qiz"><span data-l="tk_qiz">Qiz bazmi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=tugilgan"><span data-l="tk_tugilgan">Tug‘ilgan kun</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=yubiley"><span data-l="tk_yubiley">Yubiley</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=korporativ"><span data-l="tk_korporativ">Korporativ kecha</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a></div><div class="ticker-list" aria-hidden="true"><a href="designs.html?event=toy" tabindex="-1"><span data-l="tk_toy">Nikoh to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=fotiha" tabindex="-1"><span data-l="tk_fotiha">Fotiha to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=sunnat" tabindex="-1"><span data-l="tk_sunnat">Sunnat to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=beshik" tabindex="-1"><span data-l="tk_beshik">Beshik to‘yi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=qiz" tabindex="-1"><span data-l="tk_qiz">Qiz bazmi</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=tugilgan" tabindex="-1"><span data-l="tk_tugilgan">Tug‘ilgan kun</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=yubiley" tabindex="-1"><span data-l="tk_yubiley">Yubiley</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a><a href="designs.html?event=korporativ" tabindex="-1"><span data-l="tk_korporativ">Korporativ kecha</span><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg></a></div></div>
-  </nav>
-
-  <!-- EVENTS -->
-  <section class="events" id="events">
-    <div class="wrap events-in">
-      <div class="events-text" data-reveal>
-        <span class="chip" data-l="evChip">Dizaynlar</span>
-        <h2 data-l="evH">Har qanday tadbir uchun</h2>
-        <p data-l="evP">20 dan ortiq dizayn, har biri bir necha rangda. Bosing — to‘liq namunani ko‘rasiz.</p>
-        <div class="arrows">
-          <button type="button" class="round" id="prev" aria-label="Oldingi"><span class="arrow arrow--l" aria-hidden="true"></span></button>
-          <button type="button" class="round" id="next" aria-label="Keyingi"><span class="arrow" aria-hidden="true"></span></button>
-        </div>
-        <a class="more" href="designs.html"><span data-l="allDesigns">Barcha dizaynlar</span><span class="arrow" aria-hidden="true"></span></a>
+  <!-- TEMPLATES: one card per event, each opens the gallery on it -->
+  <section class="tpl" id="templates">
+    <div class="wrap">
+      <div class="tpl-head" data-reveal>
+        <span class="kicker" data-l="tplKicker">Bizning kolleksiya</span>
+        <h2 data-l="tplH">Har bir tadbirga o‘z uslubi</h2>
+        <p data-l="tplP">Nafis to‘y klassikasidan zamonaviy minimalistik yechimlargacha.</p>
+        <a class="btn btn--line btn--sm tpl-all" href="designs.html"><span data-l="allTemplates">Barcha shablonlar</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="rail-wrap" data-reveal style="--d:120ms">
-        <ul class="rail" id="rail" tabindex="0" aria-label="Namunalar">
-          <li class="shot"><a class="face" href="demo/oltin-toy.html" target="_blank" rel="noopener"><img src="img/l/card-wedding.webp" width="586" height="755" alt="Nikoh to‘yi: Umid va Dilshoda"><span class="cf cf--ink" aria-hidden="true"><span class="cf-k">Nikoh to‘yi</span><span class="cf-n">Umid<i>&amp;</i>Dilshoda</span><span class="cf-d">15.08.2026 · 18:00</span><span class="cf-p">Toshkent</span></span></a></li>
-          <li class="shot"><a class="face" href="demo/tun-tugilgan.html" target="_blank" rel="noopener"><img src="img/l/card-birthday-dark.webp" width="572" height="759" alt="Tug‘ilgan kun: Azizbek"><span class="cf cf--gold cf--low" aria-hidden="true"><span class="cf-k">Tug‘ilgan kun</span><span class="cf-n">Azizbek</span><span class="cf-d">30.07.2026</span><span class="cf-p">19:00</span></span></a></li>
-          <li class="shot"><a class="face" href="demo/pushti-tugilgan.html" target="_blank" rel="noopener"><img src="img/l/card-birthday-beige.webp" width="572" height="741" alt="Birthday: Sabrina"><span class="cf cf--ink cf--arch" aria-hidden="true"><span class="cf-k">Birthday</span><span class="cf-n">Sabrina</span><span class="cf-d">25.08.2026</span><span class="cf-p">19:00</span></span></a></li>
-          <li class="live"><a href="demo/registon-toy.html" target="_blank" rel="noopener"><iframe data-src="demo/registon-toy.html?card=1" title="Nikoh to‘yi: Registon" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/rishton-fotiha.html" target="_blank" rel="noopener"><iframe data-src="demo/rishton-fotiha.html?card=1" title="Fotiha to‘yi: Rishton" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/anor-toy.html" target="_blank" rel="noopener"><iframe data-src="demo/anor-toy.html?card=1" title="Nikoh to‘yi: Anor" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/atlas-qiz.html" target="_blank" rel="noopener"><iframe data-src="demo/atlas-qiz.html?card=1" title="Qiz bazmi: Atlas" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/bog-beshik.html" target="_blank" rel="noopener"><iframe data-src="demo/bog-beshik.html?card=1" title="Beshik to‘yi: Bog‘" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/zumrad-sunnat.html" target="_blank" rel="noopener"><iframe data-src="demo/zumrad-sunnat.html?card=1" title="Sunnat to‘yi" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/pushti-beshik.html" target="_blank" rel="noopener"><iframe data-src="demo/pushti-beshik.html?card=1" title="Beshik to‘yi" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/osmon-fotiha.html" target="_blank" rel="noopener"><iframe data-src="demo/osmon-fotiha.html?card=1" title="Fotiha to‘yi" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/bordo-yubiley.html" target="_blank" rel="noopener"><iframe data-src="demo/bordo-yubiley.html?card=1" title="Yubiley" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/pushti-qiz.html" target="_blank" rel="noopener"><iframe data-src="demo/pushti-qiz.html?card=1" title="Qiz bazmi" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/tun-korporativ.html" target="_blank" rel="noopener"><iframe data-src="demo/tun-korporativ.html?card=1" title="Korporativ" tabindex="-1"></iframe></a></li>
-          <li class="live"><a href="demo/oltin-toy.html" target="_blank" rel="noopener"><iframe data-src="demo/oltin-toy.html?card=1" title="Nikoh to‘yi" tabindex="-1"></iframe></a></li>
-        </ul>
-        <div class="dots" id="dots" aria-hidden="true"></div>
-      </div>
+      <ul class="tpl-grid">
+        <li><a class="tcard tcard--ink" href="designs.html?event=toy"><img src="img/l/t-rings.webp" width="480" height="640" alt="" loading="lazy"><span class="tk">Wedding</span><span class="tn" data-l="tToy">Nikoh to‘yi</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+        <li><a class="tcard tcard--gold" href="designs.html?event=tugilgan"><img src="img/l/card-birthday-dark.webp" width="572" height="759" alt="" loading="lazy"><span class="tk">Birthday</span><span class="tn" data-l="tBirthday">Tug‘ilgan kun</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+        <li><a class="tcard tcard--ink" href="designs.html?event=qiz"><img src="img/l/card-birthday-beige.webp" width="572" height="741" alt="" loading="lazy"><span class="tk">Qiz bazmi</span><span class="tn" data-l="tQiz">Qiz bazmi</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+        <li><a class="tcard tcard--ink" href="designs.html?event=fotiha"><img src="img/l/card-wedding.webp" width="586" height="755" alt="" loading="lazy"><span class="tk">Fotiha to‘yi</span><span class="tn" data-l="tFotiha">Fotiha to‘yi</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+        <li><a class="tcard tcard--gold" href="designs.html?event=sunnat"><img src="img/l/card-emerald.webp" width="936" height="1242" alt="" loading="lazy"><span class="tk">Sunnat to‘yi</span><span class="tn" data-l="tSunnat">Sunnat to‘yi</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+        <li><a class="tcard tcard--ink" href="designs.html?event=beshik"><img src="img/l/t-sky.webp" width="480" height="640" alt="" loading="lazy"><span class="tk">Beshik to‘yi</span><span class="tn" data-l="tBeshik">Beshik to‘yi</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+        <li><a class="tcard tcard--gold" href="designs.html?event=korporativ"><img src="img/l/t-noir.webp" width="480" height="640" alt="" loading="lazy"><span class="tk">Corporate</span><span class="tn" data-l="tKorp">Korporativ</span><svg class="ts" aria-hidden="true"><use href="#i-sparkle"/></svg></a></li>
+      </ul>
     </div>
   </section>
 
   <!-- FEATURES -->
   <section class="features" id="features">
+    <img class="ft-flowers" src="img/l/d-flowers.webp" width="1200" height="900" alt="" loading="lazy">
     <div class="wrap features-in">
-      <div class="features-text" data-reveal>
-        <span class="chip" data-l="ftChip">Imkoniyatlar</span>
-        <h2 data-l="ftH">Mehmon nimani ko‘radi</h2>
-        <p data-l="ftP">Qog‘oz taklifnoma va video fayl bera olmaydigan narsalar: yo‘l, vaqt va javob bir havolada.</p>
-        <a class="more" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="more">Batafsil</span><span class="arrow" aria-hidden="true"></span></a>
+      <div class="sec-text" data-reveal>
+        <span class="chip" data-l="ftChip">Oddiy taklifnomadan ko‘proq</span>
+        <h2 data-l="ftH">Mehmonlaringizga kerak bo‘lgan hamma narsa bir joyda</h2>
+        <p data-l="ftP">Taklifnomangiz har bir tafsiloti o‘ylangan to‘liq tadbir sahifasiga aylanadi.</p>
+        <a class="btn btn--gold btn--sm" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="more">Batafsil</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <div class="fcards">
-        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal>
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
-          <h3 data-l="f1h">Musiqa bilan ochiladi</h3>
-          <p data-l="f1p">Mehmonlar tadbiringizning o‘ziga xos muhitini his qiladi.</p>
-          <img src="img/l/f-music.webp" width="360" height="273" alt="" loading="lazy">
-        </a>
-        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:90ms">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <span class="tag" data-l="tagPrem">Premium</span>
-          <h3 data-l="f2h">Ismi bilan murojaat</h3>
-          <p data-l="f2p">Konvertda mehmonning ismi: «Hurmatli Aziz aka!»</p>
-          <img src="img/l/f-name.webp" width="333" height="273" alt="" loading="lazy">
-        </a>
-        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:60ms">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M9 14h2v3"/></svg>
-          <h3 data-l="f3h">Taymer va yo‘nalish</h3>
-          <p data-l="f3p">Taymer, «Kalendarga qo‘shish» va Yandex yoki Google xaritada yo‘l.</p>
-          <img src="img/l/f-map.webp" width="360" height="270" alt="" loading="lazy">
-        </a>
-        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:150ms">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8C10 4 6 4 6 7s6 1 6 1 6 2 6-1-4-3-6 1"/></svg>
-          <span class="tag" data-l="tagPrem">Premium</span>
-          <h3 data-l="f4h">Kelaman yoki yo‘q</h3>
-          <p data-l="f4p">Mehmonlar javob beradi, siz necha kishi kelishini ro‘yxatda ko‘rasiz.</p>
-          <img src="img/l/f-rsvp.webp" width="333" height="270" alt="" loading="lazy">
-        </a>
-        <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:120ms">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg>
-          <h3 data-l="f5h">O‘zbekcha va ruscha</h3>
-          <p data-l="f5p">Bir tilda yoki ikkala tilda birga: yosh mehmonlarga ham, kattalarga ham tushunarli.</p>
-          <img src="img/l/f-lang.webp" width="360" height="267" alt="" loading="lazy">
-        </a>
+      <ul class="fgrid">
+        <li class="fcard" data-reveal><span class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><h3 data-l="f1h">Musiqa va kayfiyat</h3><p data-l="f1p">Sevimli kuyingizni qo‘shing</p></li>
+        <li class="fcard" data-reveal style="--d:60ms"><span class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span><span class="tag">Premium</span><h3 data-l="f2h">Shaxsiy murojaat</h3><p data-l="f2p">Mehmonga ismi bilan</p></li>
+        <li class="fcard" data-reveal style="--d:120ms"><span class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg></span><h3 data-l="f3h">Teskari sanoq</h3><p data-l="f3p">Chiroyli taymer</p></li>
+        <li class="fcard" data-reveal style="--d:60ms"><span class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span><h3 data-l="f4h">O‘tkaziladigan joy</h3><p data-l="f4p">Manzil va xaritani qo‘shing</p></li>
+        <li class="fcard" data-reveal style="--d:120ms"><span class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></span><span class="tag">Premium</span><h3 data-l="f5h">Ishtirokni tasdiqlash</h3><p data-l="f5p">Kim kelishini biling</p></li>
+        <li class="fcard" data-reveal style="--d:180ms"><span class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span><h3 data-l="f6h">Ikki til</h3><p data-l="f6p">O‘zbek va rus tilida</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STORY: photos and video -->
+  <section class="story" id="story">
+    <img class="st-flowers" src="img/l/d-flowers2.webp" width="1200" height="900" alt="" loading="lazy">
+    <div class="wrap story-in">
+      <div class="sec-text" data-reveal>
+        <span class="chip" data-l="stChip">Sizning hikoyangiz</span>
+        <h2 data-l="stH">Ulashgingiz keladigan lahzalar</h2>
+        <p data-l="stP">Suratlar va video qo‘shing, o‘z hikoyangizni aytib bering va alohida kayfiyat yarating.</p>
+        <a class="btn btn--gold btn--sm" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="seeGallery">Galereyani ko‘rish</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="collage" data-reveal style="--d:120ms">
+        <img class="ph ph--main" src="img/l/d-couple.webp" width="600" height="450" alt="" loading="lazy">
+        <img class="ph ph--a" src="img/l/d-bouquet.webp" width="600" height="450" alt="" loading="lazy">
+        <img class="ph ph--b" src="img/l/d-table.webp" width="600" height="450" alt="" loading="lazy">
+        <img class="ph ph--hall" src="img/l/d-hall.webp" width="596" height="447" alt="" loading="lazy">
+        <span class="playbtn" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
   <section class="how" id="how">
-    <div class="wrap">
-      <div class="how-head" data-reveal>
+    <img class="how-photo" src="img/l/d-laptop.webp" width="1376" height="774" alt="Taklif konstruktori noutbukda" loading="lazy">
+    <div class="wrap how-in">
+      <div class="sec-text" data-reveal>
         <span class="chip" data-l="howChip">Qanday ishlaydi</span>
-        <h2 data-l="howH">Uch qadam, dizaynersiz</h2>
+        <h2 data-l="howH">Taklifnoma yaratish oson va tez</h2>
       </div>
-      <ol class="steps">
-        <li data-reveal><span class="n">1</span><h3 data-l="s1h">Tadbir va dizaynni tanlang</h3><p data-l="s1p">Nikoh, fotiha, sunnat, beshik, tug‘ilgan kun va boshqalar. 20 dan ortiq dizayn, har biri bir necha rangda.</p></li>
-        <li data-reveal style="--d:120ms"><span class="n">2</span><h3 data-l="s2h">Ism, sana va joyni yozing</h3><p data-l="s2p">Matn tayyor, faqat o‘zingiznikini qo‘yasiz. Musiqa, suratlar va dastur — xohlasangiz.</p></li>
-        <li data-reveal style="--d:240ms"><span class="n">3</span><h3 data-l="s3h">Havolani yuboring</h3><p data-l="s3p">Telegram, WhatsApp yoki Instagram orqali. Mehmonlar javob beradi, siz ro‘yxatni ko‘rasiz.</p></li>
+      <ol class="steps" data-reveal style="--d:120ms">
+        <li><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span><span data-l="s1">Shablonni tanlang</span></li>
+        <li><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg><b>2</b></span><span data-l="s2">Ma’lumotlarni kiriting</span></li>
+        <li><span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg><b>3</b></span><span data-l="s3">Mehmonlarga yuboring</span></li>
       </ol>
     </div>
   </section>
 
   <!-- PRICES -->
   <section class="prices" id="prices">
-    <svg class="wave-top" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V18 C 1180 4 900 2 640 0 C 420 0 230 30 0 64 Z"/></svg>
-    <img class="pr-leaves" src="img/l/pr-leaves.webp" width="153" height="675" alt="" loading="lazy">
-    <img class="pr-silk" src="img/l/pr-silk.webp" width="774" height="141" alt="" loading="lazy">
+    <img class="pr-silk" src="img/l/d-silk.webp" width="1376" height="774" alt="" loading="lazy">
+    <img class="pr-flowers" src="img/l/d-flowers.webp" width="1200" height="900" alt="" loading="lazy">
     <div class="wrap prices-in">
-      <div class="prices-text" data-reveal>
-        <span class="chip chip--dark" data-l="prChip">Tariflar</span>
-        <h2 data-l="prH">Bitta tadbir narxi</h2>
-        <p data-l="prP">Bir martalik to‘lov, obunasiz: taklifnoma muddatsiz ishlaydi. 3 kun bepul, Premium imkoniyatlari bilan. Ikkinchi taklifnomaga −50%.</p>
+      <div class="sec-text" data-reveal>
+        <span class="chip" data-l="prChip">Oddiy tanlov. Tushunarli narx.</span>
+        <h2 data-l="prH">Taklifnoma formatini tanlang</h2>
+        <p data-l="prP">Murakkab tariflar va ortiqcha xarajatlarsiz. Faqat kerakli imkoniyatlar.</p>
       </div>
       <article class="plan" data-reveal style="--d:100ms">
-        <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg>
         <h3 data-l="planStart">Oddiy</h3>
-        <p class="price"><span data-price="start">49 000</span> <span data-l="sum">so‘m</span></p>
+        <p class="price"><span data-price="start">49 000</span> <small data-l="sum">so‘m</small></p>
+        <p class="plan-d" data-l="planStartD">Mehmonlarni chiroyli taklif qilmoqchi bo‘lganlar uchun.</p>
         <ul class="plan-f">
-          <li data-l="ps1">Barcha dizayn va ranglar</li>
-          <li data-l="ps2">Musiqa va animatsiya</li>
-          <li data-l="ps3">Taymer, xarita, kalendar</li>
-          <li data-l="ps4">O‘zbek va rus tilida</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-l="ps1">Hashamatli shablon</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-l="ps2">Musiqa jo‘rligi</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-l="ps3">Taymer va xarita</span></li>
         </ul>
-        <a class="btn btn--line" href="create.html" data-l="planStartBtn">Yaratish</a>
+        <a class="btn btn--dark" href="create.html" data-l="planStartBtn">Oddiyni tanlash</a>
       </article>
       <article class="plan plan--premium" data-reveal style="--d:200ms">
         <span class="badge" data-l="badge">Ommabop</span>
         <h3>Premium</h3>
-        <p class="price"><span data-price="premium">99 000</span> <span data-l="sum">so‘m</span></p>
+        <p class="price"><span data-price="premium">99 000</span> <small data-l="sum">so‘m</small></p>
+        <p class="plan-d" data-l="planPremD">Alohida tadbir uchun maksimal shaxsiylashtirish.</p>
         <ul class="plan-f">
-          <li data-l="pp1">Oddiy tarifdagi hamma narsa</li>
-          <li data-l="pp2">O‘z rasm yoki video foningiz</li>
-          <li data-l="pp3">Har bir mehmonga ismli havola</li>
-          <li data-l="pp4">Javoblar ro‘yxati va Excel</li>
-          <li data-l="pp5">Suratlar va tilaklar kitobi</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-l="pp1">Barcha imkoniyatlar</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-l="pp2">O‘z suratlaringiz</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-l="pp3">Shaxsiy video</span></li>
         </ul>
-        <a class="btn btn--gold" href="create.html" data-l="planPremBtn">Yaratishni boshlash</a>
+        <a class="btn btn--gold" href="create.html"><span data-l="planPremBtn">Premium yaratish</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
     </div>
   </section>
 
-  <!-- ORGANIZERS -->
-  <section class="org" id="org">
-    <img class="org-photo" src="img/l/org.webp" width="1200" height="660" alt="Taklif konstruktori noutbukda" loading="lazy" data-reveal>
-    <div class="wrap org-in">
-      <div class="org-text" data-reveal style="--d:120ms">
-        <span class="chip" data-l="orgChip">Tashkilotchilar uchun</span>
-        <h2 data-l="orgH">Tadbir tashkil qiladiganlar uchun</h2>
-        <p data-l="orgP">To‘yxonalar, boshlovchilar, fotograf va floristlar uchun: mijozlaringizga promokodingizni bering — ularga chegirma, sizga har bir to‘lovdan ulush.</p>
-        <a class="more" id="partnerLink" href="#" hidden><span data-l="partner">Hamkor bo‘lish</span><span class="arrow" aria-hidden="true"></span></a>
+  <!-- BUSINESS: the mockup's reviews panel beside it waits for real reviews -->
+  <section class="duo" id="business">
+    <div class="wrap">
+      <div class="biz" data-reveal>
+        <img class="biz-photo" src="img/l/d-partner.webp" width="1376" height="774" alt="" loading="lazy">
+        <div class="biz-text">
+          <span class="kicker kicker--plain">Taklif Business</span>
+          <h2 data-l="bizH">Biznesingiz zamonaviy yechimlarga loyiq</h2>
+          <p data-l="bizP">Mijozlaringizga raqamli taklifnomalar taklif qiling va rivojlanish uchun yangi imkoniyatlarga ega bo‘ling.</p>
+          <a class="btn btn--line btn--sm" id="partnerLink" href="#" hidden><span data-l="partner">Hamkor bo‘lish</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <img class="faq-leaves" src="img/l/faq-leaves.webp" width="396" height="468" alt="" loading="lazy">
-    <div class="wrap faq-in">
+  <!-- FAQ + CTA -->
+  <section class="final" id="faq">
+    <img class="fn-flowers" src="img/l/d-flowers2.webp" width="1200" height="900" alt="" loading="lazy">
+    <img class="fn-silk" src="img/l/d-silk.webp" width="1376" height="774" alt="" loading="lazy">
+    <div class="wrap final-in">
       <div class="faq-head" data-reveal>
-        <span class="chip" data-l="faqChip">Savollar</span>
-        <h2 data-l="faqH">Ko‘p beriladigan savollar</h2>
+        <h2 data-l="faqH">Savollar qoldimi?</h2>
+        <p data-l="faqP">Ko‘p beriladigan savollarga javob toping yoki biz bilan bog‘laning.</p>
+        <button class="btn btn--line btn--sm" type="button" id="faqAll"><span data-l="faqAll">Barcha savollar</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </div>
-      <div class="qa" data-reveal style="--d:120ms">
-        <details><summary data-l="q1">Bepul sinov qanday ishlaydi?</summary><p data-l="a1">Yaratish va tahrirlash bepul. Keyin 3 kunlik sinovni boshlaysiz: taklifnoma to‘liq ishlaydi, 20 tagacha mehmon. Yoqsa, to‘laysiz va u abadiy, cheklovsiz qoladi.</p></details>
-        <details><summary data-l="q2">E’lon qilgandan keyin o‘zgartirsa bo‘ladimi?</summary><p data-l="a2">Ha, istalgancha. Dizaynni almashtirsangiz ham ismlar, sana va suratlar saqlanadi, havola o‘sha qoladi.</p></details>
-        <details><summary data-l="q3">O‘z videomni qo‘ysam bo‘ladimi?</summary><p data-l="a3">Premium’da vertikal rasm yoki mp4 video fon bo‘ladi, masalan SYNTX’da tayyorlangan.</p></details>
-        <details><summary data-l="q4">Ro‘yxatdan o‘tish kerakmi?</summary><p data-l="a4">Yo‘q. Saytda yoki Telegram’da darhol boshlaysiz, qoralama shu brauzerda yoki Telegram akkauntingizda saqlanadi.</p></details>
-        <details><summary data-l="q5">Mehmonlarga qanday yuboraman?</summary><p data-l="a5">Bitta havola: Telegram, WhatsApp, Instagram yoki SMS orqali. Premium’da har bir mehmonga ismli havola yuborasiz.</p></details>
-        <details><summary data-l="q6">3 kundan keyin to‘lamasam nima bo‘ladi?</summary><p data-l="a6">Mehmonlar «muddat tugadi» yozuvini ko‘radi. Hamma narsa saqlanadi: to‘lashingiz bilan taklifnoma yana ochiladi.</p></details>
+      <div class="qa" data-reveal style="--d:100ms">
+        <details><summary><span data-l="q2">E’lon qilgandan keyin taklifnomani o‘zgartirsa bo‘ladimi?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-l="a2">Ha, istalgancha. Dizaynni almashtirsangiz ham ismlar, sana va suratlar saqlanadi, havola o‘sha qoladi.</p></details>
+        <details><summary><span data-l="q3">O‘z suratlarim va videomni qo‘shsam bo‘ladimi?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-l="a3">Ha, Premium’da: suratlar galereyasi, fon sifatida esa vertikal rasm yoki mp4 video.</p></details>
+        <details><summary><span data-l="q5">Taklifnomani mehmonlarga qanday yuboraman?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-l="a5">Bitta havola: Telegram, WhatsApp, Instagram yoki SMS orqali. Premium’da har bir mehmonga ismli havola yuborasiz.</p></details>
+        <details class="more-q" hidden><summary><span data-l="q1">Bepul sinov qanday ishlaydi?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-l="a1">Yaratish va tahrirlash bepul. Keyin 3 kunlik sinovni boshlaysiz: taklifnoma to‘liq ishlaydi, 20 tagacha mehmon. Yoqsa, to‘laysiz va u abadiy, cheklovsiz qoladi.</p></details>
+        <details class="more-q" hidden><summary><span data-l="q4">Ro‘yxatdan o‘tish kerakmi?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-l="a4">Yo‘q. Saytda yoki Telegram’da darhol boshlaysiz, qoralama shu brauzerda yoki Telegram akkauntingizda saqlanadi.</p></details>
+        <details class="more-q" hidden><summary><span data-l="q6">3 kundan keyin to‘lamasam nima bo‘ladi?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p data-l="a6">Mehmonlar «muddat tugadi» yozuvini ko‘radi. Hamma narsa saqlanadi: to‘lashingiz bilan taklifnoma yana ochiladi.</p></details>
       </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <img class="cta-flowers" src="img/l/cta-flowers.webp" width="570" height="480" alt="" loading="lazy">
-    <img class="cta-candles" src="img/l/cta-candles.webp" width="579" height="480" alt="" loading="lazy">
-    <div class="wrap cta-in" data-reveal>
-      <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg>
-      <h2 data-l="ctaH">Taklifnomangizni hoziroq yarating</h2>
-      <p data-l="ctaP">Bepul boshlang va ko‘ring. Yoqsa to‘laysiz.</p>
-      <a class="btn btn--gold" href="create.html" data-l="createFree">Bepul yaratish</a>
+      <div class="cta" data-reveal style="--d:200ms">
+        <img class="cta-bloom" src="img/l/d-bloom.webp" width="560" height="560" alt="" loading="lazy">
+        <h2 data-l="ctaH">Alohida kuningiz alohida taklifnomaga loyiq</h2>
+        <p data-l="ctaP">Tadbiringizning chiroyli sahifasini yarating va bayramni uchrashuvdan oldin boshlang.</p>
+        <span class="cta-note" data-l="ctaNote">Yaratish taxminan 10 daqiqa oladi</span>
+        <a class="btn btn--gold" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="bi"><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
+      </div>
     </div>
   </section>
 </main>
@@ -270,18 +251,21 @@
   <a class="btn btn--gold" href="create.html" data-l="create">Taklifnoma yaratish</a>
 </div>
 
-<footer class="foot">
+<footer class="foot" id="contacts">
   <div class="wrap foot-in">
-    <a class="wordmark" href="./" data-brand>Taklif</a>
+    <div class="foot-brand">
+      <a class="wordmark" href="./" data-brand>Taklif</a>
+      <p data-l="tagline">Chiroyli taklif qilish san’ati.</p>
+    </div>
     <nav class="foot-links" aria-label="Footer">
-      <a href="#events" data-l="navDesigns">Dizaynlar</a>
+      <a href="#templates" data-l="navTemplates">Shablonlar</a>
       <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
-      <a href="#how" data-l="navHow">Qanday ishlaydi</a>
-      <a href="#prices" data-l="navPrices">Narxlar</a>
-      <a href="#faq" data-l="navFaq">Savollar</a>
+      <a href="#prices" data-l="navPrices">Tariflar</a>
+      <a href="#business" data-l="navPartners">Hamkorlarga</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts" data-l="navContacts">Kontaktlar</a>
     </nav>
     <div class="socials" id="socials"></div>
-    <span class="langs foot-langs"><button type="button" data-lang-btn="uz" aria-pressed="true">uz</button><button type="button" data-lang-btn="ru" aria-pressed="false">ru</button></span>
     <p class="copy">© 2026 <span data-brand>Taklif</span>. <span data-l="rights">Barcha huquqlar himoyalangan.</span></p>
   </div>
 </footer>
