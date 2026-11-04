@@ -363,13 +363,16 @@
     var lb = labels(langs(d)[0]);
     var list = h('ul', { class: 'wishes' });
     var empty = h('p', { class: 'small-note', text: lb.noWishes });
+    function show(rows) {
+      list.textContent = '';
+      empty.hidden = rows.length > 0;
+      rows.forEach(function (w) { list.appendChild(h('li', {}, [h('p', { class: 'w-text', text: w.text }), h('span', { class: 'fl', text: w.name })])); });
+    }
+    // the landing's sample invitations carry their own example wishes
+    if (d.sampleWishes) show(d.sampleWishes);
     function load() {
       if (preview || !slug) return;
-      fetch('/api/invites/' + encodeURIComponent(slug) + '/wishes').then(function (r) { return r.ok ? r.json() : []; }).then(function (rows) {
-        list.textContent = '';
-        empty.hidden = rows.length > 0;
-        rows.forEach(function (w) { list.appendChild(h('li', {}, [h('p', { class: 'w-text', text: w.text }), h('span', { class: 'fl', text: w.name })])); });
-      }).catch(function () {});
+      fetch('/api/invites/' + encodeURIComponent(slug) + '/wishes').then(function (r) { return r.ok ? r.json() : []; }).then(show).catch(function () {});
     }
     var name = h('input', { class: 'inp', maxlength: '60', required: true, autocomplete: 'name' });
     var text = h('textarea', { class: 'inp ta', maxlength: '500', rows: '3', required: true });
@@ -657,7 +660,7 @@
     }
     var main = h('main', { class: 'inv' }, [
       hero(d, ev, theme, guest), textBlock(d, ev), parentsBlock(d), countdown(d), programBlock(d), venue(d), galleryBlock(d),
-      rsvpBlock(d, inv.slug, inv.preview, guestObj), wishesBlock(d, inv.slug, inv.preview || EMBED), giftBlock(d), thanksBlock(d), hostsBlock(d), waitingBlock(d), footer(d)
+      rsvpBlock(d, inv.slug, inv.preview || !inv.slug, guestObj), wishesBlock(d, inv.slug, inv.preview || EMBED || !inv.slug), giftBlock(d), thanksBlock(d), hostsBlock(d), waitingBlock(d), footer(d)
     ]);
     // every other block after the invitation text becomes a band with torn paper edges
     var blocks = Array.prototype.filter.call(main.children, function (n) { return n.classList.contains('block'); });
