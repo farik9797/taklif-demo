@@ -27,22 +27,22 @@
   <div class="wrap nav-in">
     <a class="wordmark" href="./" data-brand>Taklif</a>
     <nav class="nav-links" aria-label="Menu">
-      <a href="#org" data-l="navServices">Xizmatlar</a>
-      <a href="#events" data-l="navEvents">Tadbir turlari</a>
+      <a href="#events" data-l="navDesigns">Dizaynlar</a>
       <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
+      <a href="#how" data-l="navHow">Qanday ishlaydi</a>
       <a href="#prices" data-l="navPrices">Narxlar</a>
-      <a href="#faq">FAQ</a>
+      <a href="#faq" data-l="navFaq">Savollar</a>
     </nav>
     <a class="btn btn--dark nav-cta" href="create.html" data-l="create">Taklifnoma yaratish</a>
     <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span></button>
   </div>
 </header>
 <nav class="menu" id="menu" aria-label="Menu">
-  <a href="#org" data-l="navServices">Xizmatlar</a>
-  <a href="#events" data-l="navEvents">Tadbir turlari</a>
+  <a href="#events" data-l="navDesigns">Dizaynlar</a>
   <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
+  <a href="#how" data-l="navHow">Qanday ishlaydi</a>
   <a href="#prices" data-l="navPrices">Narxlar</a>
-  <a href="#faq">FAQ</a>
+  <a href="#faq" data-l="navFaq">Savollar</a>
   <a href="create.html" data-l="mine">Taklifnomalarim</a>
   <span class="langs"><button type="button" data-lang-btn="uz" aria-pressed="true">uz</button><button type="button" data-lang-btn="ru" aria-pressed="false">ru</button></span>
   <a class="btn btn--dark" href="create.html" data-l="create">Taklifnoma yaratish</a>
@@ -65,11 +65,18 @@
     <div class="wrap hero-in">
       <span class="chip" data-l="heroChip">Onlayn xizmat</span>
       <h1><span data-l="heroH1">To‘yga jonli taklifnoma,</span> <span class="gold" data-l="heroH1b">10 daqiqada</span></h1>
-      <p class="lead" data-l="heroLead">Bepul yarating, yoqsa to‘lang va havolani mehmonlarga yuboring.</p>
-      <a class="btn btn--gold" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="arrow" aria-hidden="true"></span></a>
+      <p class="lead" data-l="heroLead">Musiqa, taymer, xarita va mehmonlar javobi bilan jonli sahifa. Havolani Telegram’da yuborasiz, mehmon bir bosishda ochadi.</p>
+      <div class="hero-cta">
+        <a class="btn btn--gold" href="create.html"><span data-l="createFree">Bepul yaratish</span><span class="arrow" aria-hidden="true"></span></a>
+        <a class="more" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="seeSample">Namunani ko‘rish</span><span class="arrow" aria-hidden="true"></span></a>
+      </div>
+      <ul class="facts">
+        <li data-l="fact1">Ro‘yxatdan o‘tmasdan</li>
+        <li data-l="fact2">3 kun bepul</li>
+        <li data-l="fact3">Yoqsa to‘laysiz</li>
+      </ul>
       <p class="proof" id="proof" hidden><img src="img/l/avatars.webp" width="213" height="69" alt=""><span id="proofText"></span></p>
     </div>
-    <a class="scroll" href="#events"><span class="scroll-line" aria-hidden="true"></span><span class="mouse" aria-hidden="true"></span><span data-l="scroll">Pastga aylantiring</span></a>
   </section>
 
   <!-- EVENT TYPES: a running line, each opens the gallery on that event -->
@@ -83,7 +90,7 @@
       <div class="events-text" data-reveal>
         <span class="chip" data-l="evChip">Dizaynlar</span>
         <h2 data-l="evH">Har qanday tadbir uchun</h2>
-        <p data-l="evP">O‘zingizga mos uslubni tanlang.</p>
+        <p data-l="evP">20 dan ortiq dizayn, har biri bir necha rangda. Bosing — to‘liq namunani ko‘rasiz.</p>
         <div class="arrows">
           <button type="button" class="round" id="prev" aria-label="Oldingi"><span class="arrow arrow--l" aria-hidden="true"></span></button>
           <button type="button" class="round" id="next" aria-label="Keyingi"><span class="arrow" aria-hidden="true"></span></button>
@@ -117,9 +124,9 @@
   <section class="features" id="features">
     <div class="wrap features-in">
       <div class="features-text" data-reveal>
-        <span class="chip" data-l="ftChip">Tadbirlar</span>
+        <span class="chip" data-l="ftChip">Imkoniyatlar</span>
         <h2 data-l="ftH">Mehmon nimani ko‘radi</h2>
-        <p data-l="ftP">Barcha muhim ma’lumotlar va qulay detallar bilan chiroyli taklifnoma.</p>
+        <p data-l="ftP">Qog‘oz taklifnoma va video fayl bera olmaydigan narsalar: yo‘l, vaqt va javob bir havolada.</p>
         <a class="more" href="demo/zumrad-toy.html" target="_blank" rel="noopener"><span data-l="more">Batafsil</span><span class="arrow" aria-hidden="true"></span></a>
       </div>
       <div class="fcards">
@@ -131,29 +138,46 @@
         </a>
         <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:90ms">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span class="tag" data-l="tagPrem">Premium</span>
           <h3 data-l="f2h">Ismi bilan murojaat</h3>
-          <p data-l="f2p">Har bir mehmonga shaxsiy murojaat.</p>
+          <p data-l="f2p">Konvertda mehmonning ismi: «Hurmatli Aziz aka!»</p>
           <img src="img/l/f-name.webp" width="333" height="273" alt="" loading="lazy">
         </a>
         <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:60ms">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M9 14h2v3"/></svg>
           <h3 data-l="f3h">Taymer va yo‘nalish</h3>
-          <p data-l="f3p">Tadbirgacha taymer va qulay yo‘nalish.</p>
+          <p data-l="f3p">Taymer, «Kalendarga qo‘shish» va Yandex yoki Google xaritada yo‘l.</p>
           <img src="img/l/f-map.webp" width="360" height="270" alt="" loading="lazy">
         </a>
         <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:150ms">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8C10 4 6 4 6 7s6 1 6 1 6 2 6-1-4-3-6 1"/></svg>
+          <span class="tag" data-l="tagPrem">Premium</span>
           <h3 data-l="f4h">Kelaman yoki yo‘q</h3>
-          <p data-l="f4p">Mehmonlar javob beradi, siz ro‘yxatni ko‘rasiz.</p>
+          <p data-l="f4p">Mehmonlar javob beradi, siz necha kishi kelishini ro‘yxatda ko‘rasiz.</p>
           <img src="img/l/f-rsvp.webp" width="333" height="270" alt="" loading="lazy">
         </a>
         <a class="fcard" href="demo/zumrad-toy.html" target="_blank" rel="noopener" data-reveal style="--d:120ms">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg>
           <h3 data-l="f5h">O‘zbekcha va ruscha</h3>
-          <p data-l="f5p">Bir tilda yoki ikkala tilda birga.</p>
+          <p data-l="f5p">Bir tilda yoki ikkala tilda birga: yosh mehmonlarga ham, kattalarga ham tushunarli.</p>
           <img src="img/l/f-lang.webp" width="360" height="267" alt="" loading="lazy">
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="how-head" data-reveal>
+        <span class="chip" data-l="howChip">Qanday ishlaydi</span>
+        <h2 data-l="howH">Uch qadam, dizaynersiz</h2>
+      </div>
+      <ol class="steps">
+        <li data-reveal><span class="n">1</span><h3 data-l="s1h">Tadbir va dizaynni tanlang</h3><p data-l="s1p">Nikoh, fotiha, sunnat, beshik, tug‘ilgan kun va boshqalar. 20 dan ortiq dizayn, har biri bir necha rangda.</p></li>
+        <li data-reveal style="--d:120ms"><span class="n">2</span><h3 data-l="s2h">Ism, sana va joyni yozing</h3><p data-l="s2p">Matn tayyor, faqat o‘zingiznikini qo‘yasiz. Musiqa, suratlar va dastur — xohlasangiz.</p></li>
+        <li data-reveal style="--d:240ms"><span class="n">3</span><h3 data-l="s3h">Havolani yuboring</h3><p data-l="s3p">Telegram, WhatsApp yoki Instagram orqali. Mehmonlar javob beradi, siz ro‘yxatni ko‘rasiz.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -166,20 +190,31 @@
       <div class="prices-text" data-reveal>
         <span class="chip chip--dark" data-l="prChip">Tariflar</span>
         <h2 data-l="prH">Bitta tadbir narxi</h2>
-        <p data-l="prP">3 kun bepul sinab ko‘ring, yoqsa to‘lang. Ikkinchi taklifnomaga −50%.</p>
+        <p data-l="prP">Bir martalik to‘lov, obunasiz: taklifnoma muddatsiz ishlaydi. 3 kun bepul, Premium imkoniyatlari bilan. Ikkinchi taklifnomaga −50%.</p>
       </div>
       <article class="plan" data-reveal style="--d:100ms">
         <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg>
         <h3 data-l="planStart">Oddiy</h3>
         <p class="price"><span data-price="start">49 000</span> <span data-l="sum">so‘m</span></p>
-        <p class="plan-f" data-l="planStartP">Har qanday rang va fon, animatsiya, musiqa, taymer, xarita.</p>
+        <ul class="plan-f">
+          <li data-l="ps1">Barcha dizayn va ranglar</li>
+          <li data-l="ps2">Musiqa va animatsiya</li>
+          <li data-l="ps3">Taymer, xarita, kalendar</li>
+          <li data-l="ps4">O‘zbek va rus tilida</li>
+        </ul>
         <a class="btn btn--line" href="create.html" data-l="planStartBtn">Yaratish</a>
       </article>
       <article class="plan plan--premium" data-reveal style="--d:200ms">
         <span class="badge" data-l="badge">Ommabop</span>
         <h3>Premium</h3>
         <p class="price"><span data-price="premium">99 000</span> <span data-l="sum">so‘m</span></p>
-        <p class="plan-f" data-l="planPremP">Yana o‘z rasm yoki video foningiz, mehmonlar hisoboti va barcha imkoniyatlar.</p>
+        <ul class="plan-f">
+          <li data-l="pp1">Oddiy tarifdagi hamma narsa</li>
+          <li data-l="pp2">O‘z rasm yoki video foningiz</li>
+          <li data-l="pp3">Har bir mehmonga ismli havola</li>
+          <li data-l="pp4">Javoblar ro‘yxati va Excel</li>
+          <li data-l="pp5">Suratlar va tilaklar kitobi</li>
+        </ul>
         <a class="btn btn--gold" href="create.html"><span data-l="planPremBtn">Yaratishni boshlash</span><span class="arrow" aria-hidden="true"></span></a>
       </article>
     </div>
@@ -192,7 +227,7 @@
       <div class="org-text" data-reveal style="--d:120ms">
         <span class="chip" data-l="orgChip">Tashkilotchilar uchun</span>
         <h2 data-l="orgH">Tadbir tashkil qiladiganlar uchun</h2>
-        <p data-l="orgP">Mijozlarga promokodingizni bering: ularga chegirma, sizga qo‘shimcha imkoniyatlar.</p>
+        <p data-l="orgP">To‘yxonalar, boshlovchilar, fotograf va floristlar uchun: mijozlaringizga promokodingizni bering — ularga chegirma, sizga har bir to‘lovdan ulush.</p>
         <a class="more" id="partnerLink" href="#faq"><span data-l="more">Batafsil</span><span class="arrow" aria-hidden="true"></span></a>
       </div>
     </div>
@@ -210,6 +245,9 @@
         <details><summary data-l="q1">Bepul sinov qanday ishlaydi?</summary><p data-l="a1">Yaratish va tahrirlash bepul. Keyin 3 kunlik sinovni boshlaysiz: taklifnoma to‘liq ishlaydi, 20 tagacha mehmon. Yoqsa, to‘laysiz va u abadiy, cheklovsiz qoladi.</p></details>
         <details><summary data-l="q2">E’lon qilgandan keyin o‘zgartirsa bo‘ladimi?</summary><p data-l="a2">Ha, istalgancha. Dizaynni almashtirsangiz ham ismlar, sana va suratlar saqlanadi, havola o‘sha qoladi.</p></details>
         <details><summary data-l="q3">O‘z videomni qo‘ysam bo‘ladimi?</summary><p data-l="a3">Premium’da vertikal rasm yoki mp4 video fon bo‘ladi, masalan SYNTX’da tayyorlangan.</p></details>
+        <details><summary data-l="q4">Ro‘yxatdan o‘tish kerakmi?</summary><p data-l="a4">Yo‘q. Saytda yoki Telegram’da darhol boshlaysiz, qoralama shu brauzerda yoki Telegram akkauntingizda saqlanadi.</p></details>
+        <details><summary data-l="q5">Mehmonlarga qanday yuboraman?</summary><p data-l="a5">Bitta havola: Telegram, WhatsApp, Instagram yoki SMS orqali. Premium’da har bir mehmonga ismli havola yuborasiz.</p></details>
+        <details><summary data-l="q6">3 kundan keyin to‘lamasam nima bo‘ladi?</summary><p data-l="a6">Mehmonlar «muddat tugadi» yozuvini ko‘radi. Hamma narsa saqlanadi: to‘lashingiz bilan taklifnoma yana ochiladi.</p></details>
       </div>
     </div>
   </section>
@@ -221,8 +259,8 @@
     <div class="wrap cta-in" data-reveal>
       <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 C 13 8 16 11 24 12 C 16 13 13 16 12 24 C 11 16 8 13 0 12 C 8 11 11 8 12 0Z"/><path d="M12 5 C 12.6 9.5 14.5 11.4 19 12 C 14.5 12.6 12.6 14.5 12 19 C 11.4 14.5 9.5 12.6 5 12 C 9.5 11.4 11.4 9.5 12 5Z" transform="rotate(45 12 12)"/></svg>
       <h2 data-l="ctaH">Taklifnomangizni hoziroq yarating</h2>
-      <p data-l="ctaP">Tez. Chiroyli. Bepul.</p>
-      <a class="btn btn--gold" href="create.html"><span data-l="create">Taklifnoma yaratish</span><span class="arrow" aria-hidden="true"></span></a>
+      <p data-l="ctaP">Bepul boshlang va ko‘ring. Yoqsa to‘laysiz.</p>
+      <a class="btn btn--gold" href="create.html"><span data-l="createFree">Bepul yaratish</span><span class="arrow" aria-hidden="true"></span></a>
     </div>
   </section>
 </main>
@@ -236,11 +274,11 @@
   <div class="wrap foot-in">
     <a class="wordmark" href="./" data-brand>Taklif</a>
     <nav class="foot-links" aria-label="Footer">
-      <a href="#org" data-l="navServices">Xizmatlar</a>
-      <a href="#events" data-l="navEvents">Tadbir turlari</a>
+      <a href="#events" data-l="navDesigns">Dizaynlar</a>
       <a href="#features" data-l="navFeatures">Imkoniyatlar</a>
+      <a href="#how" data-l="navHow">Qanday ishlaydi</a>
       <a href="#prices" data-l="navPrices">Narxlar</a>
-      <a href="#faq">FAQ</a>
+      <a href="#faq" data-l="navFaq">Savollar</a>
     </nav>
     <div class="socials" id="socials"></div>
     <span class="langs foot-langs"><button type="button" data-lang-btn="uz" aria-pressed="true">uz</button><button type="button" data-lang-btn="ru" aria-pressed="false">ru</button></span>

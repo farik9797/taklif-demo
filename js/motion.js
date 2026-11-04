@@ -27,9 +27,10 @@
     .from('.hero h1 > span', { opacity: 0, y: 46, stagger: 0.14 }, 0.25)
     .from('.hero .lead', { opacity: 0, y: 24 }, 0.55)
     .from('.hero .btn--gold', { opacity: 0, y: 24, scale: 0.96 }, 0.7)
+    .from('.hero-cta .more', { opacity: 0, x: -16 }, 0.85)
+    .from('.hero .facts li', { opacity: 0, y: 12, stagger: 0.1 }, 0.95)
     .from('.hero .proof:not([hidden])', { opacity: 0, y: 16 }, 0.85)
-    .from('.hero .pill', { opacity: 0, y: 24, scale: 0.85, stagger: 0.25, duration: 1.1 }, 1.2)
-    .from('.hero .scroll', { opacity: 0, y: -12, duration: 1 }, 1.1);
+    .from('.hero .pill', { opacity: 0, y: 24, scale: 0.85, stagger: 0.25, duration: 1.1 }, 1.2);
 
   // ---------- hero: depth ----------
   // the card floats over the scene; on scroll it lifts faster than the backdrop
