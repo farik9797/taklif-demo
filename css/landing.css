@@ -7,7 +7,8 @@
  * Shared tokens and controls: brand.css. Pictures: public/img/l/ (design/flow-prompts.md). */
 @import url("./brand.css");
 :root {
-  --u: min(1.25px, calc(100vw / 1440), max(calc(100vh / 880), 1px));
+  /* the 1440 layout scales with the window width, filling a 1920 screen edge to edge */
+  --u: min(calc(100vw / 1440), calc(1920px / 1440));
   --d-bg: #070907; --d-bg-2: #0a0f0c; --d-em: #0e2a1f; --d-em-2: #123828; --d-foot: #050605;
   --d-ink: #f3e8d6; --d-ink-2: #cdbfa9; --d-ink-3: #9d917f;
   --d-gold: #c9a066; --d-gold-2: #e4c891; --d-gold-3: #f1dcae; --d-gold-dk: #a47a42;
@@ -208,12 +209,32 @@ section > img:not(.ph) { pointer-events: none; }
 .plan--premium { background: linear-gradient(160deg, rgba(228, 200, 145, 0.13), rgba(201, 160, 102, 0.03)); box-shadow: inset 0 0 0 calc(1.5 * var(--u)) var(--d-line-hi), 0 0 calc(40 * var(--u)) rgba(201, 160, 102, 0.16), 0 calc(30 * var(--u)) calc(60 * var(--u)) calc(-30 * var(--u)) rgba(0, 0, 0, 0.9); }
 .badge { position: absolute; top: calc(-14 * var(--u)); right: calc(28 * var(--u)); display: inline-flex; align-items: center; height: calc(28 * var(--u)); padding: 0 calc(18 * var(--u)); border-radius: 999px; background: linear-gradient(180deg, #ecd3a1, #c99d60); color: #1d1409; font: 700 calc(12 * var(--u)) / 1 var(--f-body); box-shadow: 0 calc(8 * var(--u)) calc(18 * var(--u)) calc(-6 * var(--u)) rgba(201, 160, 102, 0.7); }
 
-/* ---------- business ---------- */
+/* ---------- business + reviews ---------- */
 .duo { padding: calc(14 * var(--u)) 0; background: var(--d-bg); box-shadow: inset 0 1px 0 rgba(201, 160, 102, 0.12); }
+.duo-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: calc(16 * var(--u)); }
 .biz { position: relative; overflow: hidden; min-height: calc(300 * var(--u)); border-radius: calc(18 * var(--u)); background: linear-gradient(90deg, #0b0d0a 30%, #15100a); box-shadow: inset 0 0 0 1px rgba(201, 160, 102, 0.16); }
-.biz-photo { position: absolute; top: 0; right: 0; width: 66%; height: 100%; max-width: none; object-fit: cover; object-position: 60% 40%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(220 * var(--u))); mask-image: linear-gradient(90deg, transparent, #000 calc(220 * var(--u))); }
-.biz-text { position: relative; max-width: calc(430 * var(--u)); padding: calc(40 * var(--u)) 0 calc(40 * var(--u)) calc(44 * var(--u)); }
-.biz-text h2 { margin-top: calc(16 * var(--u)); font-size: calc(32 * var(--u)); }
+.biz-photo { position: absolute; top: 0; right: 0; width: 60%; height: 100%; max-width: none; object-fit: cover; object-position: 60% 40%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(160 * var(--u))); mask-image: linear-gradient(90deg, transparent, #000 calc(160 * var(--u))); }
+.biz-text { position: relative; max-width: calc(320 * var(--u)); padding: calc(36 * var(--u)) 0 calc(36 * var(--u)) calc(36 * var(--u)); }
+.biz-text h2 { margin-top: calc(16 * var(--u)); font-size: calc(28 * var(--u)); }
+.revs { display: grid; grid-template-columns: minmax(0, 1fr) calc(262 * var(--u)); gap: calc(26 * var(--u)); align-items: center; padding: calc(30 * var(--u)) calc(24 * var(--u)) calc(30 * var(--u)) calc(34 * var(--u)); border-radius: calc(18 * var(--u)); background: linear-gradient(90deg, #0b0d0a, #120f0a); box-shadow: inset 0 0 0 1px rgba(201, 160, 102, 0.16); }
+.revs-text .kicker { line-height: 1.5; }
+.revs-text h2 { margin-top: calc(12 * var(--u)); font-size: calc(28 * var(--u)); }
+.rev-list { display: grid; margin: calc(18 * var(--u)) 0 0; padding: 0; list-style: none; }
+.rev { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity var(--t-slow) var(--ease), visibility 0s linear var(--t-slow); }
+.rev.on { opacity: 1; visibility: visible; transition: opacity var(--t-slow) var(--ease); }
+.stars { display: flex; gap: calc(4 * var(--u)); }
+.stars svg { width: calc(16 * var(--u)); height: calc(16 * var(--u)); fill: var(--d-gold-2); stroke: none; }
+.rev blockquote { display: flex; gap: calc(10 * var(--u)); margin: calc(14 * var(--u)) 0 0; color: var(--d-ink); font: italic 500 calc(17 * var(--u)) / 1.45 var(--f-serif); }
+.rev blockquote svg { flex: none; width: calc(18 * var(--u)); height: calc(18 * var(--u)); margin-top: calc(3 * var(--u)); fill: none; stroke: var(--d-gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rev-who { display: flex; align-items: center; gap: calc(10 * var(--u)); margin-top: calc(16 * var(--u)); color: var(--d-ink-2); font: 600 calc(13.5 * var(--u)) / 1 var(--f-body); }
+.ava { display: grid; place-items: center; width: calc(34 * var(--u)); height: calc(34 * var(--u)); border-radius: 50%; background: linear-gradient(180deg, #ecd3a1, #c99d60); color: #1d1409; font: 600 calc(15 * var(--u)) / 1 var(--f-serif); }
+.rev-dots { display: flex; gap: calc(8 * var(--u)); margin-top: calc(22 * var(--u)); }
+.rev-dots button { position: relative; width: calc(8 * var(--u)); height: calc(8 * var(--u)); padding: 0; border: 0; border-radius: 999px; background: rgba(228, 200, 145, 0.3); cursor: pointer; transition: width var(--t) var(--ease), background-color var(--t) var(--ease); }
+.rev-dots button::after { content: ""; position: absolute; inset: calc(-10 * var(--u)) calc(-4 * var(--u)); }
+.rev-dots button[aria-pressed="true"] { width: calc(24 * var(--u)); background: var(--d-gold-2); }
+.revs-ph { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: calc(8 * var(--u)); }
+.revs-ph img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(10 * var(--u)); box-shadow: 0 calc(16 * var(--u)) calc(30 * var(--u)) calc(-16 * var(--u)) rgba(0, 0, 0, 0.9); }
+.revs-ph .playbtn { left: 50%; top: 50%; transform: translate(-50%, -50%); }
 .biz-text p { margin-top: calc(16 * var(--u)); color: var(--d-ink-2); font-size: calc(15 * var(--u)); line-height: calc(24 * var(--u)); }
 .biz-text .btn { margin-top: calc(28 * var(--u)); }
 
@@ -333,6 +354,10 @@ section > img:not(.ph) { pointer-events: none; }
   .biz-photo { position: relative; width: 100%; height: 240px; -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%); mask-image: linear-gradient(180deg, transparent, #000 30%); }
   .biz-text { padding: 28px 22px 4px; }
   .biz-text h2 { font-size: 28px; }
+  .duo-in { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .revs { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 28px 22px 22px; }
+  .revs-text h2 { font-size: 28px; }
+  .rev blockquote { font-size: 18px; }
   .fn-silk { left: -30%; width: 160%; }
   .faq-head h2 { margin-top: 0; font-size: 30px; }
   .qa summary { min-height: 58px; font-size: 15px; }

@@ -18,6 +18,8 @@
     planStart: 'Обычный', planStartD: 'Для тех, кто хочет красиво пригласить гостей.', ps1: 'Премиальный шаблон', ps2: 'Музыкальное сопровождение', ps3: 'Таймер и карта', planStartBtn: 'Выбрать обычный',
     badge: 'Популярный', planPremD: 'Максимальная персонализация для особенного события.', pp1: 'Все возможности', pp2: 'Собственные фотографии', pp3: 'Персональное видео', planPremBtn: 'Создать Premium', sum: 'сум',
     bizH: 'Ваш бизнес заслуживает современных решений', bizP: 'Предлагайте клиентам цифровые приглашения и получайте новые возможности для развития.', partner: 'Стать партнёром',
+    rvK: 'Ваши истории — наша гордость', rvH: 'Нас рекомендуют за впечатления', rv1: 'Taklif сделал наш праздник ещё более особенным! Спасибо!',
+    rv2: 'Гости отвечали прямо по ссылке — список гостей собрался сам. Очень удобно.', rv3: 'Сделали приглашение на суннат-той за один вечер, родственники хвалили дизайн.',
     faqH: 'Остались вопросы?', faqP: 'Найдите ответы на популярные вопросы или свяжитесь с нами.', faqAll: 'Перейти к FAQ',
     q2: 'Можно ли изменить приглашение после публикации?', a2: 'Да, сколько угодно. Даже при смене дизайна имена, дата и фото сохраняются, а ссылка остаётся прежней.',
     q3: 'Можно добавить свои фотографии и видео?', a3: 'Да, на Premium: фотогалерея, а фоном — вертикальное фото или видео mp4.',
@@ -87,6 +89,20 @@
     Array.prototype.forEach.call(document.querySelectorAll('.more-q'), function (d) { d.hidden = false; });
     faqAll.hidden = true;
   });
+  // ---------- sharhlar: one at a time, the dots switch, a slow auto turn ----------
+  var revs = document.querySelectorAll('#revList .rev');
+  var dots = document.querySelectorAll('#revDots button');
+  var revAt = 0;
+  function showRev(i) {
+    revAt = i;
+    Array.prototype.forEach.call(revs, function (r, k) { r.classList.toggle('on', k === i); });
+    Array.prototype.forEach.call(dots, function (d, k) { d.setAttribute('aria-pressed', String(k === i)); });
+  }
+  var revTimer = reduce ? 0 : setInterval(function () { showRev((revAt + 1) % revs.length); }, 6000);
+  Array.prototype.forEach.call(dots, function (d, k) {
+    d.addEventListener('click', function () { clearInterval(revTimer); showRev(k); });
+  });
+
   // the language menu closes once a language is picked
   var langMenu = document.querySelector('.lang');
   langMenu.addEventListener('click', function (e) { if (e.target.closest('button')) langMenu.open = false; });
