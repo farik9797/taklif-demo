@@ -28,12 +28,15 @@
     .from('.hero .lead', { opacity: 0, y: 24 }, 0.55)
     .from('.hero .btn--gold', { opacity: 0, y: 24, scale: 0.96 }, 0.7)
     .from('.hero .proof:not([hidden])', { opacity: 0, y: 16 }, 0.85)
+    .from('.hero .pill', { opacity: 0, y: 24, scale: 0.85, stagger: 0.25, duration: 1.1 }, 1.2)
     .from('.hero .scroll', { opacity: 0, y: -12, duration: 1 }, 1.1);
 
   // ---------- hero: depth ----------
   // the card floats over the scene; on scroll it lifts faster than the backdrop
   intro.add(function () {
     gsap.to('.hero-card', { y: -12, rotation: 3.6, duration: 3.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+    gsap.to('.pill--music', { y: -10, duration: 2.8, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+    gsap.to('.pill--rsvp', { y: 9, duration: 3.3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
   });
   gsap.to('.hero-photo', {
     yPercent: 8, ease: 'none',
@@ -57,11 +60,14 @@
     var cx = gsap.quickTo(card, 'x', { duration: 1, ease: 'power3.out' });
     var tx = gsap.quickTo(card, 'rotationY', { duration: 1, ease: 'power3.out' });
     var ty = gsap.quickTo(card, 'rotationX', { duration: 1, ease: 'power3.out' });
+    // the notes sit nearer to the eye than the card, so they move more
+    var pills = gsap.utils.toArray('.hero .pill').map(function (p) { return gsap.quickTo(p, 'x', { duration: 1.1, ease: 'power3.out' }); });
     function move(e) {
       var r = hero.getBoundingClientRect();
       var kx = (e.clientX - r.left) / r.width - 0.5, ky = (e.clientY - r.top) / r.height - 0.5;
       px(kx * -18); py(ky * -12);
       cx(kx * 22); tx(kx * 10); ty(ky * -8);
+      pills.forEach(function (p, i) { p(kx * (i ? 34 : -28)); });
     }
     hero.addEventListener('mousemove', move);
     return function () { hero.removeEventListener('mousemove', move); };
