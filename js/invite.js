@@ -643,7 +643,7 @@
     st.setProperty('--band-bg', bandBg); st.setProperty('--band-ink', theme.dark ? theme.bg : theme.bg);
     st.setProperty('--band-gold', bandGold);
     st.setProperty('--band-f1', mix(bandGold, 'black', 0.22)); st.setProperty('--band-f3', mix(bandGold, 'white', theme.dark ? 0.25 : 0.5));
-    document.body.className = (theme.dark ? 'dark' : 'light') + ' t-' + theme.id + ' tex-' + (theme.texture || 'paper') + (EMBED ? ' embed' : '');
+    document.body.className = (theme.dark ? 'dark' : 'light') + ' t-' + theme.id + ' tex-' + (theme.texture || 'paper') + (theme.family ? ' f-' + theme.family : '') + (EMBED ? ' embed' : '');
     document.documentElement.lang = d.lang === 'ru' ? 'ru' : 'uz';
     var lb0 = labels(langs(d)[0]);
     var guestObj = inv.guest || null;

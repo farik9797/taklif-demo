@@ -61,6 +61,15 @@ body.card { overflow: hidden; background: var(--bg); }
 .card .htime { font-size: 4.6vw; }
 .card .hplace { font-size: 4.8vw; }
 .card .rv { opacity: 1; animation: none; }
+/* illustrated collections in a card: the frame is wider than the 9:16 art, so its borders take more
+   height; the text gets a little smaller and stays between them (percent padding follows the width) */
+.card.tex-art .hero-in { padding: 25% 18% 22%; gap: 1.1vw; }
+.card.tex-art .kicker { font-size: 5.2vw; }
+.card.tex-art .names { font-size: 12.5vw; }
+.card.tex-art .hdate { font-size: 4.6vw; }
+.card.tex-art .htime { font-size: 4vw; }
+.card.tex-art .hplace { font-size: 4.2vw; }
+.card.f-rishton .hero-in { padding-top: 31%; padding-bottom: 40%; }
 
 /* reveal after the envelope opens; visible by default without the class machinery */
 .rv { opacity: 1; }

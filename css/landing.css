@@ -1,11 +1,12 @@
 /* Taklif landing, 1:1 with the client's mockup (798px concept scaled x1.8 to a 1440px page).
- * Desktop sizes are written in --u, one mockup-to-1440 pixel that follows the viewport from 900px up to
- * 1800px (1.25px there), so the page keeps the mockup's proportions on wide screens too instead of
- * shrinking into a 1440px strip; phones get their own layout below.
+ * Desktop sizes are written in --u, one mockup-to-1440 pixel that follows the viewport width from 900px
+ * up to 1800px (1.25px there), so the page keeps the mockup's proportions on wide screens too. It also
+ * stays small enough for the whole hero to fit a short window (laptops, browser chrome), down to 0.8px.
+ * Phones get their own layout below.
  * Shared tokens and controls: brand.css. Pictures: public/img/l/, cut from the mockup. */
 @import url("./brand.css");
 :root {
-  --u: min(1.25px, calc(100vw / 1440));
+  --u: min(1.25px, calc(100vw / 1440), max(calc(100vh / 880), 0.8px));
   --l-cream: #fbf1e4; --l-cream-2: #f6e5d5; --l-ev-1: #fbeee2; --l-ev-2: #f8e9dc; --l-ft: #faefe2;
   --l-band: #432710; --l-band-hi: #5a3519; --l-band-lo: #2e1a0b; --l-cta: #2f190a; --l-cta-hi: #3d2311; --l-foot: #f6e6d7;
   --l-ink: #2f1b0c; --l-ink-2: #3d2a1b; --l-ink-3: #5d4633; --l-chip: #efd5b6; --l-chip-ink: #5a3a22; --l-chip-dark: #502f16;
@@ -56,7 +57,8 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 /* ---------- hero ---------- */
 .hero { position: relative; height: calc(814 * var(--u)); overflow: hidden; background: radial-gradient(calc(700 * var(--u)) calc(420 * var(--u)) at 20% 92%, rgba(255, 250, 243, 0.7), transparent 70%), linear-gradient(180deg, var(--l-cream), var(--l-cream-2)); }
 /* hero art: the silk-and-peony scene with the sample invitation laid on it (both from design/flow) */
-.hero-art { position: absolute; left: calc(50% + calc(-18 * var(--u))); top: calc(86 * var(--u)); width: calc(736 * var(--u)); height: calc(727 * var(--u)); }
+/* the scene runs to the window's right edge, however narrow the page is, up to a sane width */
+.hero-art { position: absolute; left: calc(50% + calc(-18 * var(--u))); top: calc(86 * var(--u)); width: max(calc(736 * var(--u)), min(calc(50vw + calc(18 * var(--u))), calc(980 * var(--u)))); height: calc(727 * var(--u)); }
 .hero-photo { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(70 * var(--u)), #000 calc(100% - calc(30 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(70 * var(--u))); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 calc(70 * var(--u)), #000 calc(100% - calc(30 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(70 * var(--u))); mask-composite: intersect; }
 .hero-card { position: absolute; left: calc(92 * var(--u)); top: calc(40 * var(--u)); width: calc(468 * var(--u)); transform: rotate(5deg); border-radius: calc(8 * var(--u)); box-shadow: 0 calc(40 * var(--u)) calc(70 * var(--u)) calc(-30 * var(--u)) rgba(36, 22, 10, 0.55), 0 calc(8 * var(--u)) calc(18 * var(--u)) rgba(36, 22, 10, 0.18); }
 .hero-card:focus-visible { outline: 3px solid var(--l-gold); outline-offset: 4px; }
@@ -83,7 +85,7 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 .face img { display: block; width: 100%; height: auto; }
 .cf { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4cqw; padding: 0 16cqw; text-align: center; font-family: "Cormorant Garamond", Georgia, serif; }
 .cf-k { font-size: 6cqw; font-weight: 500; font-style: italic; letter-spacing: 0.02em; }
-.cf-n { display: flex; flex-direction: column; align-items: center; margin: 1.5cqw 0 2cqw; font: 400 15cqw / 0.95 "Great Vibes", "Segoe Script", cursive; }
+.cf-n { display: flex; flex-direction: column; align-items: center; margin: 4.5cqw 0 2cqw; font: 400 15cqw / 0.95 "Great Vibes", "Segoe Script", cursive; }
 .cf-n i { font-style: normal; font-size: 0.62em; line-height: 1.15; }
 .cf-d { font-size: 6.4cqw; font-weight: 600; letter-spacing: 0.04em; }
 .cf-p { font-size: 5.6cqw; font-weight: 500; font-style: italic; }
@@ -133,21 +135,20 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 .round:disabled { opacity: 0.35; cursor: default; background: transparent; }
 .round .arrow { width: calc(16 * var(--u)); height: calc(16 * var(--u)); }
 .rail-wrap { position: relative; min-width: 0; margin-right: calc((100vw - 100%) / -2); }
-.rail { display: flex; align-items: flex-start; gap: calc(16 * var(--u)); margin: 0; padding: calc(45 * var(--u)) calc(40 * var(--u)) 0 0; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.rail { display: flex; align-items: flex-start; gap: calc(16 * var(--u)); margin: 0; padding: calc(45 * var(--u)) calc(40 * var(--u)) calc(64 * var(--u)) 0; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
 .rail::-webkit-scrollbar { display: none; }
 .rail:focus-visible { outline-offset: -2px; }
 .rail li { flex: none; scroll-snap-align: start; }
-.rail li.up { transform: translateY(calc(-16 * var(--u))); }
 .rail a { display: block; transition: transform var(--t-slow) var(--ease); }
 .shot a { border-radius: calc(10 * var(--u)); box-shadow: 0 calc(22 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(74, 47, 28, 0.45), 0 calc(2 * var(--u)) calc(6 * var(--u)) rgba(74, 47, 28, 0.12); }
 .rail a:hover { transform: translateY(calc(-6 * var(--u))); }
 /* .face is a size container, so it needs its own width */
 .shot .face { width: calc(286 * var(--u)); }
-.shot:nth-child(1) .face { width: calc(293 * var(--u)); }
-.live { width: calc(286 * var(--u)); padding: calc(13 * var(--u)) calc(13 * var(--u)) calc(28 * var(--u)); }
-.live a { position: relative; aspect-ratio: 261 / 330; border-radius: calc(12 * var(--u)); overflow: hidden; background: var(--l-chip); box-shadow: 0 calc(20 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(74, 47, 28, 0.45); }
+.shot .face img { aspect-ratio: 286 / 368; object-fit: cover; }
+.live { width: calc(286 * var(--u)); }
+.live a { position: relative; aspect-ratio: 286 / 368; border-radius: calc(10 * var(--u)); overflow: hidden; background: var(--l-chip); box-shadow: 0 calc(22 * var(--u)) calc(40 * var(--u)) calc(-18 * var(--u)) rgba(74, 47, 28, 0.45), 0 calc(2 * var(--u)) calc(6 * var(--u)) rgba(74, 47, 28, 0.12); }
 .live iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
-.dots { display: flex; gap: calc(15 * var(--u)); margin-top: calc(22 * var(--u)); }
+.dots { display: flex; gap: calc(15 * var(--u)); margin-top: calc(-6 * var(--u)); }
 .dots span { width: calc(6 * var(--u)); height: calc(6 * var(--u)); border-radius: 50%; background: #d9c3a7; transition: background-color var(--t), transform var(--t); }
 .dots span.on { background: #6f4a25; transform: scale(1.5); }
 
@@ -159,12 +160,12 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 .features-text p { margin-top: calc(22 * var(--u)); max-width: calc(285 * var(--u)); color: var(--l-ink-2); font-size: calc(18 * var(--u)); line-height: calc(30 * var(--u)); }
 .features-text .more { margin-top: calc(18 * var(--u)); }
 .fcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: calc(164 * var(--u)); gap: calc(23 * var(--u)); padding-top: calc(65 * var(--u)); }
-.fcard { position: relative; display: block; overflow: hidden; padding: calc(16 * var(--u)) calc(214 * var(--u)) 0 calc(29 * var(--u)); border-radius: calc(18 * var(--u)); background: linear-gradient(100deg, var(--l-card-1), var(--l-card-2)); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 calc(14 * var(--u)) calc(30 * var(--u)) calc(-20 * var(--u)) rgba(74, 47, 28, 0.35); color: var(--l-ink); text-decoration: none; transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease); }
+.fcard { position: relative; display: block; overflow: hidden; padding: calc(16 * var(--u)) calc(196 * var(--u)) 0 calc(29 * var(--u)); border-radius: calc(18 * var(--u)); background: linear-gradient(100deg, var(--l-card-1), var(--l-card-2)); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 calc(14 * var(--u)) calc(30 * var(--u)) calc(-20 * var(--u)) rgba(74, 47, 28, 0.35); color: var(--l-ink); text-decoration: none; transition: transform var(--t-slow) var(--ease), box-shadow var(--t-slow) var(--ease); }
 .fcard:hover { transform: translateY(calc(-4 * var(--u))); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 calc(22 * var(--u)) calc(40 * var(--u)) calc(-20 * var(--u)) rgba(74, 47, 28, 0.45); }
 .fcard .ico { width: calc(25 * var(--u)); height: calc(25 * var(--u)); fill: none; stroke: var(--l-gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .fcard h3 { margin-top: calc(10 * var(--u)); max-width: calc(200 * var(--u)); font-size: calc(22.5 * var(--u)); line-height: calc(22 * var(--u)); color: var(--l-ink); }
 .fcard p { margin-top: calc(12 * var(--u)); max-width: calc(215 * var(--u)); color: var(--l-ink-3); font-size: calc(15 * var(--u)); line-height: calc(18 * var(--u)); }
-.fcard img { position: absolute; right: 0; top: 0; height: 100%; width: auto; max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(30 * var(--u))); mask-image: linear-gradient(90deg, transparent, #000 calc(30 * var(--u))); transform-origin: right center; transition: transform 0.9s var(--ease); }
+.fcard img { position: absolute; right: 0; top: 0; height: 100%; width: calc(190 * var(--u)); max-width: none; object-fit: cover; object-position: right center; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(30 * var(--u))); mask-image: linear-gradient(90deg, transparent, #000 calc(30 * var(--u))); transform-origin: right center; transition: transform 0.9s var(--ease); }
 .fcard:hover img { transform: scale(1.06); }
 /* five cards: the last one runs the full width instead of standing alone */
 .fcard:nth-child(5) { grid-column: 1 / -1; }
@@ -308,9 +309,8 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
   .arrows { margin-top: 18px; }
   .round { width: 48px; height: 48px; }
   .rail-wrap { margin-right: -20px; }
-  .rail { padding: 28px 20px 24px 0; gap: 12px; }
-  .shot .face, .shot:nth-child(1) .face { width: 220px; }
-  .live { width: 220px; padding: 10px 10px 20px; }
+  .rail { padding: 28px 20px 28px 0; gap: 12px; }
+  .shot .face, .live { width: 220px; }
   .dots { justify-content: center; gap: 10px; margin-top: 0; padding-right: 20px; }
   .features { padding: 56px 0 80px; }
   .features-in { grid-template-columns: minmax(0, 1fr); }

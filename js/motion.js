@@ -46,10 +46,6 @@
     y: -70, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
-  gsap.to('.hero-in', {
-    y: -60, opacity: 0.2, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'center top+=35%', end: 'bottom top', scrub: true }
-  });
   mm.add('(min-width: 900px) and (hover: hover)', function () {
     var hero = document.querySelector('.hero');
     var photo = document.querySelector('.hero-photo');
