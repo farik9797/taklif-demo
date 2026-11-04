@@ -1,12 +1,13 @@
 /* Taklif landing, 1:1 with the client's mockup (798px concept scaled x1.8 to a 1440px page).
  * Desktop sizes are written in --u, one mockup-to-1440 pixel that follows the viewport width from 900px
- * up to 1800px (1.25px there), so the page keeps the mockup's proportions on wide screens too. It also
- * stays small enough for the whole hero to fit a short window (laptops, browser chrome), down to 0.8px.
+ * up to 1800px (1.25px there), so the page keeps the mockup's proportions on wide screens too. It grows
+ * past 1px only while the window is tall enough for the hero; it never shrinks below the mockup for
+ * height, or a wide but short window would squeeze the page into a strip.
  * Phones get their own layout below.
  * Shared tokens and controls: brand.css. Pictures: public/img/l/, cut from the mockup. */
 @import url("./brand.css");
 :root {
-  --u: min(1.25px, calc(100vw / 1440), max(calc(100vh / 880), 0.8px));
+  --u: min(1.25px, calc(100vw / 1440), max(calc(100vh / 880), 1px));
   --l-cream: #fbf1e4; --l-cream-2: #f6e5d5; --l-ev-1: #fbeee2; --l-ev-2: #f8e9dc; --l-ft: #faefe2;
   --l-band: #432710; --l-band-hi: #5a3519; --l-band-lo: #2e1a0b; --l-cta: #2f190a; --l-cta-hi: #3d2311; --l-foot: #f6e6d7;
   --l-ink: #2f1b0c; --l-ink-2: #3d2a1b; --l-ink-3: #5d4633; --l-chip: #efd5b6; --l-chip-ink: #5a3a22; --l-chip-dark: #502f16;
@@ -207,7 +208,7 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 
 /* ---------- organizers ---------- */
 .org { position: relative; height: calc(414 * var(--u)); background: linear-gradient(180deg, #f8eadc, #faede0); }
-.org-photo { position: absolute; left: calc(50% + calc(-718 * var(--u))); top: calc(14 * var(--u)); width: calc(720 * var(--u)); height: calc(396 * var(--u)); max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(40 * var(--u)), #000 calc(100% - calc(70 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(40 * var(--u)), #000 calc(100% - calc(30 * var(--u))), transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 calc(40 * var(--u)), #000 calc(100% - calc(70 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(40 * var(--u)), #000 calc(100% - calc(30 * var(--u))), transparent); mask-composite: intersect; }
+.org-photo { position: absolute; left: calc(50% + calc(-718 * var(--u))); top: calc(14 * var(--u)); width: calc(720 * var(--u)); height: calc(396 * var(--u)); max-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(80 * var(--u)), #000 calc(100% - calc(80 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(50 * var(--u)), #000 calc(100% - calc(50 * var(--u))), transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 calc(80 * var(--u)), #000 calc(100% - calc(80 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(50 * var(--u)), #000 calc(100% - calc(50 * var(--u))), transparent); mask-composite: intersect; }
 .org-in { position: relative; height: 100%; }
 .org-text { position: absolute; left: calc(50% + calc(67 * var(--u))); top: calc(60 * var(--u)); width: calc(500 * var(--u)); }
 .org h2 { margin-top: calc(16 * var(--u)); }
@@ -217,7 +218,7 @@ h2 { font-size: calc(48.5 * var(--u)); line-height: calc(50 * var(--u)); color: 
 
 /* ---------- faq ---------- */
 .faq { position: relative; padding: calc(45 * var(--u)) 0 calc(50 * var(--u)); background: #faede0; overflow: hidden; }
-.faq-leaves { position: absolute; left: calc(50% + calc(-718 * var(--u))); top: 0; width: calc(238 * var(--u)); height: 100%; max-width: none; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(30 * var(--u)), #000 calc(100% - calc(60 * var(--u))), transparent); mask-image: linear-gradient(90deg, transparent, #000 calc(30 * var(--u)), #000 calc(100% - calc(60 * var(--u))), transparent); }
+.faq-leaves { position: absolute; left: calc(50% + calc(-718 * var(--u))); top: 0; width: calc(238 * var(--u)); height: 100%; max-width: none; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(60 * var(--u)), #000 calc(100% - calc(80 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(70 * var(--u)), #000 calc(100% - calc(70 * var(--u))), transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent, #000 calc(60 * var(--u)), #000 calc(100% - calc(80 * var(--u))), transparent), linear-gradient(180deg, transparent, #000 calc(70 * var(--u)), #000 calc(100% - calc(70 * var(--u))), transparent); mask-composite: intersect; }
 .faq-in { position: relative; display: grid; grid-template-columns: calc(402 * var(--u)) calc(662 * var(--u)); align-items: start; padding-left: calc(calc(99 * var(--u)) + calc(149 * var(--u))); }
 .faq h2 { margin-top: calc(12 * var(--u)); max-width: calc(380 * var(--u)); }
 .qa { margin-top: calc(-7 * var(--u)); }
