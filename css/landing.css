@@ -119,7 +119,7 @@ section > img:not(.ph) { pointer-events: none; }
 .face img { display: block; width: 100%; height: auto; }
 .cf { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4cqw; padding: 0 16cqw; text-align: center; font-family: "Cormorant Garamond", Georgia, serif; }
 .cf-k { font-size: 6cqw; font-weight: 500; font-style: italic; letter-spacing: 0.02em; }
-.cf-n { display: flex; flex-direction: column; align-items: center; margin: 4.5cqw 0 2cqw; font: 400 15cqw / 0.95 "Great Vibes", "Segoe Script", cursive; }
+.cf-n { display: flex; flex-direction: column; align-items: center; margin: 4.5cqw 0 2cqw; font: 400 15cqw / 0.95 "Great Vibes", "Segoe Script", cursive; padding: 15px 0 0; }
 .cf-n i { font-style: normal; font-size: 0.62em; line-height: 1.15; }
 .cf-d { font-size: 6.4cqw; font-weight: 600; letter-spacing: 0.04em; }
 .cf-p { font-size: 5.6cqw; font-weight: 500; font-style: italic; }
