@@ -56,7 +56,7 @@ body.card { overflow: hidden; background: var(--bg); }
 .card .scroll-hint { display: none; }
 .card .hero-in { gap: 1.6vw; }
 .card .kicker { font-size: 6vw; }
-.card .names { font-size: 15vw; margin: 1vw 0; }
+.card .names { font-size: 12.5vw; margin: 1vw 0; }
 .card .hdate { font-size: 5.4vw; }
 .card .htime { font-size: 4.6vw; }
 .card .hplace { font-size: 4.8vw; }
