@@ -65,7 +65,7 @@ body.card { overflow: hidden; background: var(--bg); }
    height; the text gets a little smaller and stays between them (percent padding follows the width) */
 .card.tex-art .hero-in { padding: 25% 18% 22%; gap: 1.1vw; }
 .card.tex-art .kicker { font-size: 5.2vw; }
-.card.tex-art .names { font-size: 12.5vw; }
+.card.tex-art .names { font-size: 12.5vw; padding-top: 10px; }
 .card.tex-art .hdate { font-size: 4.6vw; }
 .card.tex-art .htime { font-size: 4vw; }
 .card.tex-art .hplace { font-size: 4.2vw; }
@@ -223,7 +223,7 @@ select.inp { -webkit-appearance: none; appearance: none; }
 .names { filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.18)); }
 /* script capitals swing far left of their box and background-clip:text cuts them off:
    wide padding gives the foil room, negative margins keep the layout and wrap width as before */
-.names, .card .names { padding: 0 0.5em; margin-left: -0.38em; margin-right: -0.38em; max-width: calc(100% + 0.76em); }
+.names, .card .names { padding: 10px 0.5em; margin-left: -0.38em; margin-right: -0.38em; max-width: calc(100% + 0.76em); }
 .has-media .names { filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.45)); }
 .dark .names { filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45)); }
 .bh { font-weight: 600; letter-spacing: 0.01em; }
