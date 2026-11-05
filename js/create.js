@@ -245,7 +245,8 @@
     formDesign.elements.sparkles.checked = inv.data.sparkles !== false;
     formDesign.elements.rsvp.checked = inv.data.rsvp !== false;
     formDesign.elements.wishes.checked = inv.data.wishes !== false;
-    showUpload('music', inv.data.music);
+    showUpload('music', isTrack(inv.data.music) ? '' : inv.data.music);
+    renderTracks();
     showUpload('bg', inv.data.bg && inv.data.bg.url);
     renderGallery(); renderQuestions(); renderGifts();
   }
@@ -349,6 +350,41 @@
     $('#' + kind + 'Name').textContent = url ? url.split('/').pop() : '';
     $('[data-clear="' + kind + '"]').hidden = !url;
   }
+
+  // ready music: tracks that suit this event come first, and each can be heard before choosing
+  var trackSel = $('#trackSel'), trackPlay = $('#trackPlay'), trackAudio = null;
+  function trackUrl(id) { return '/music/' + id + '.mp3'; }
+  function isTrack(u) { return cfg.tracks.some(function (tr) { return trackUrl(tr.id) === u; }); }
+  function stopPreview() {
+    if (trackAudio) { trackAudio.pause(); trackAudio = null; }
+    trackPlay.textContent = t('listen');
+  }
+  function renderTracks() {
+    var ev = inv.data.event;
+    var fits = cfg.tracks.filter(function (tr) { return tr.events.indexOf(ev) !== -1; });
+    var rest = cfg.tracks.filter(function (tr) { return tr.events.indexOf(ev) === -1; });
+    trackSel.textContent = '';
+    trackSel.setAttribute('aria-label', t('trackPick'));
+    trackSel.appendChild(el('option', { value: '' }, t('trackNone')));
+    fits.concat(rest).forEach(function (tr) { trackSel.appendChild(el('option', { value: trackUrl(tr.id) }, tr.name[L()])); });
+    trackSel.value = isTrack(inv.data.music) ? inv.data.music : '';
+    trackPlay.hidden = !trackSel.value;
+    stopPreview();
+  }
+  trackSel.addEventListener('change', function () {
+    inv.data.music = trackSel.value;
+    showUpload('music', '');
+    trackPlay.hidden = !trackSel.value;
+    stopPreview();
+    changed();
+  });
+  trackPlay.addEventListener('click', function () {
+    if (trackAudio) { stopPreview(); return; }
+    trackAudio = new Audio(trackSel.value);
+    trackAudio.addEventListener('ended', stopPreview);
+    trackAudio.play().catch(stopPreview);
+    trackPlay.textContent = t('stopListen');
+  });
   $$('[data-upload]').forEach(function (input) {
     input.addEventListener('change', function () {
       var kind = input.getAttribute('data-upload');
@@ -365,6 +401,7 @@
           if (kind === 'music') {
             if (j.kind !== 'audio') throw new Error('bad_type');
             inv.data.music = j.url;
+            renderTracks();
           } else {
             if (j.kind !== 'image' && j.kind !== 'video') throw new Error('bad_type');
             inv.data.bg = { type: j.kind, url: j.url };
@@ -380,7 +417,7 @@
   $$('[data-clear]').forEach(function (b) {
     b.addEventListener('click', function () {
       var kind = b.getAttribute('data-clear');
-      if (kind === 'music') inv.data.music = ''; else inv.data.bg = null;
+      if (kind === 'music') { inv.data.music = ''; renderTracks(); } else inv.data.bg = null;
       showUpload(kind, '');
       changed();
     });
@@ -615,7 +652,7 @@
     if (!cfg) return;
     renderEvents();
     if (step === 2) fillDataForm();
-    if (step === 3) renderThemes();
+    if (step === 3) { renderThemes(); renderTracks(); }
     if (step === 4) renderDone();
   });
 

@@ -220,7 +220,10 @@ select.inp { -webkit-appearance: none; appearance: none; }
 /* gold foil type: metallic gradient with a slow light sweep */
 .foil, .names { background: linear-gradient(105deg, var(--foil-1) 0%, var(--foil-2) 22%, var(--foil-3) 42%, var(--foil-2) 58%, var(--foil-1) 78%, var(--foil-2) 100%);
   background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: foil 7s linear infinite; }
-.names { filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.18)); padding: 0 0.12em; }
+.names { filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.18)); }
+/* script capitals swing far left of their box and background-clip:text cuts them off:
+   wide padding gives the foil room, negative margins keep the layout and wrap width as before */
+.names, .card .names { padding: 0 0.5em; margin-left: -0.38em; margin-right: -0.38em; max-width: calc(100% + 0.76em); }
 .has-media .names { filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.45)); }
 .dark .names { filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45)); }
 .bh { font-weight: 600; letter-spacing: 0.01em; }
