@@ -5,9 +5,9 @@
   var DEMO = !!window.TAKLIF_DEMO;
   var RU = {
     create: 'Создать приглашение', chip: 'Дизайны', title: 'Все дизайны', eventsLabel: 'Вид события',
-    lead: 'Дизайнов: {n}. Выберите событие, и образцы покажут его текст.', view: 'Посмотреть', pick: 'Выбрать', tip: 'Рекомендуем'
+    lead: 'Дизайнов: {n}. Выберите событие, и образцы покажут его текст.', view: 'Посмотреть', pick: 'Выбрать', tip: 'Рекомендуем', fresh: 'Новинка'
   };
-  var UZ = { lead: '{n} ta dizayn. Tadbirni tanlang: namunalar o‘sha tadbir matni bilan ko‘rsatiladi.', view: 'Ko‘rish', pick: 'Tanlash', tip: 'Tavsiya' };
+  var UZ = { lead: '{n} ta dizayn. Tadbirni tanlang: namunalar o‘sha tadbir matni bilan ko‘rsatiladi.', view: 'Ko‘rish', pick: 'Tanlash', tip: 'Tavsiya', fresh: 'Yangi' };
   var nodes = document.querySelectorAll('[data-l]');
   Array.prototype.forEach.call(nodes, function (n) { UZ[n.getAttribute('data-l')] = n.textContent; });
   function t(k) { return (I18N.lang === 'ru' ? RU : UZ)[k]; }
@@ -64,7 +64,8 @@
       var name = th.name[I18N.lang === 'ru' ? 'ru' : 'uz'];
       var card = el('article', { class: 'dz' });
       var prev = el('a', { class: 'dz-prev', href: sample(th.id, ev.id), target: '_blank', rel: 'noopener', 'aria-label': name + ': ' + t('view') });
-      if (tips.indexOf(th.id) > -1) prev.appendChild(el('span', { class: 'chip' }, t('tip')));
+      if (th.isNew) prev.appendChild(el('span', { class: 'chip chip--new' }, t('fresh')));
+      else if (tips.indexOf(th.id) > -1) prev.appendChild(el('span', { class: 'chip' }, t('tip')));
       var ifr = el('iframe', { 'data-src': sample(th.id, ev.id, true), title: name, tabindex: '-1', loading: 'lazy' });
       prev.appendChild(ifr);
       if (io) io.observe(ifr); else ifr.src = ifr.getAttribute('data-src');

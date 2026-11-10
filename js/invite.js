@@ -188,7 +188,17 @@
       media = h('img', { class: 'bgmedia', src: d.bg.url, alt: '' });
     }
     // painted collections bring their own first screen; the client's own photo or video still wins
-    var art = !media && theme.art ? h('img', { class: 'bgart', src: theme.art, alt: '' }) : null;
+    // a collection with a video plays it once on the full invitation and rests on its last frame
+    // (its ends don't match, so a loop would jump); gallery cards and reduced motion keep the still
+    var art = null;
+    var still = CARD || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    if (!media && theme.video && !still) {
+      // no autoplay: it starts when the envelope opens, so the guest sees it from the first frame
+      art = h('video', { class: 'bgart', src: theme.video, poster: theme.art, muted: true, playsinline: true, preload: 'auto', 'aria-hidden': 'true' });
+      art.muted = true;
+    } else if (!media && theme.art) {
+      art = h('img', { class: 'bgart', src: theme.art, alt: '' });
+    }
     var names;
     if (d.name2) {
       names = h('h1', { class: 'names rv' }, [
@@ -676,6 +686,8 @@
     function play() {
       document.body.classList.add('opened');
       if (audio) audio.play().catch(function () {});
+      var artVideo = main.querySelector('video.bgart');
+      if (artVideo) { var p = artVideo.play(); if (p && p.catch) p.catch(function () {}); }
     }
     if (opts && opts.skipIntro) play();
     else root.appendChild(intro(d, theme, play, guest));

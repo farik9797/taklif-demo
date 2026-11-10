@@ -70,6 +70,9 @@ body.card { overflow: hidden; background: var(--bg); }
 .card.tex-art .htime { font-size: 4vw; }
 .card.tex-art .hplace { font-size: 4.2vw; }
 .card.f-rishton .hero-in { padding-top: 31%; padding-bottom: 40%; }
+.card.f-lola .hero-in { padding: 12% 20% 72%; }
+.card.f-ayvon .hero-in { padding: 78% 20% 18%; }
+.card.f-oqshom .hero-in { padding: 14% 14% 84%; }
 
 /* reveal after the envelope opens; visible by default without the class machinery */
 .rv { opacity: 1; }
@@ -245,6 +248,12 @@ select.inp { -webkit-appearance: none; appearance: none; }
 .tex-art { background: var(--tex-noise), var(--bg2); }
 /* the art is heaviest along the bottom edge: lift the wording clear of it */
 .tex-art .hero-in { padding-bottom: 24%; }
+/* where each painting leaves room for the wording: lola above the tulips, ayvon inside the arch, oqshom in the sky */
+.f-lola .hero-in { padding: 22% 22% 95%; }
+.f-ayvon .hero-in { padding: 92% 20% 22%; gap: 6px; }
+.f-ayvon .hero-in > p { text-shadow: 0 1px 10px rgba(30, 14, 6, 0.8); }
+.f-ayvon .names { filter: drop-shadow(0 2px 8px rgba(30, 14, 6, 0.85)); }
+.f-oqshom .hero-in { padding: 12% 14% 112%; }
 .flap-l { clip-path: polygon(0 0, 50% 50%, 0 100%); filter: brightness(0.94); }
 .flap-r { clip-path: polygon(100% 0, 50% 50%, 100% 100%); filter: brightness(0.9); }
 .flap-b { clip-path: polygon(0 100%, 50% 48%, 100% 100%); filter: brightness(1.04); }
